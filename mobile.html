@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation Peak Pilates® — Mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mulish:wght@300;400;500;600;700&family=Sacramento&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#EEE9DF;min-height:100vh;font-family:"Mulish",ui-sans-serif,system-ui,sans-serif;color:#2D2D2D}
+  .stage{
+    min-height:100vh;
+    display:flex;align-items:flex-start;justify-content:center;
+    gap:60px;padding:48px 24px;flex-wrap:wrap;
+  }
+  .label-col{
+    max-width:340px;padding-top:80px;
+  }
+  .label-col h1{
+    font-family:"Quicksand",sans-serif;font-weight:700;
+    font-size:42px;line-height:1.05;letter-spacing:0.005em;text-transform:uppercase;
+    margin:0 0 20px;color:#2D2D2D;
+  }
+  .label-col h1 .scr{
+    display:block;font-family:"Sacramento",cursive;
+    font-weight:400;text-transform:none;font-size:48px;color:#6B9E47;line-height:0.9;margin-bottom:6px;
+  }
+  .label-col p{font-size:15px;line-height:1.6;color:#5A5A5A;margin:0 0 22px}
+  .label-col .underline{display:block;width:80px;height:2px;background:#F2B044;margin:0 0 22px}
+  .pill{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#F5A06B;color:#fff;padding:14px 24px;border-radius:999px;
+    font-weight:700;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    text-decoration:none;
+  }
+  .pill:hover{background:#E78A4F}
+  /* shrink iOS frame area for nicer page */
+  #mobile-root{flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="label-col">
+    <h1>
+      <span class="scr">version</span>
+      Mobile
+    </h1>
+    <span class="underline"></span>
+    <p>La même landing page, repensée pour le téléphone : VSL plein écran, CTA fixe en bas, FAQ pliées par défaut, bandeau d'urgence compact.</p>
+    <p>Optimisé pour iPhone (402×874). Touch targets minimum 44px. La vidéo VSL est en ratio portrait.</p>
+    <a class="pill" href="index.html">Voir la version desktop &rarr;</a>
+  </div>
+
+  <div id="mobile-root"></div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="ios-frame.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+const C = {
+  green: '#6B9E47', greenDeep: '#4F7A30', greenDark: '#3D5F26',
+  orange: '#F5A06B', orangeDeep: '#E78A4F',
+  yellow: '#F2B044', yellowSoft: '#F4BE5F',
+  cream: '#FAF8F4', grayCard: '#ECEBE8', line: '#E0DEDA',
+  ink: '#2D2D2D', inkSoft: '#5A5A5A',
+};
+
+const fonts = {
+  display: '"Quicksand", sans-serif',
+  sans: '"Mulish", sans-serif',
+  script: '"Sacramento", cursive',
+  italic: '"Cormorant Garamond", serif',
+};
+
+function Logo({ small }) {
+  return (
+    <div style={{display:'flex',alignItems:'center',gap:8,lineHeight:1}}>
+      <svg width={small?44:52} height={small?28:34} viewBox="0 0 64 42">
+        <circle cx="6"  cy="14" r="2.2" fill="#9DBE3D"/>
+        <circle cx="13" cy="9"  r="1.7" fill="#6B9E47"/>
+        <circle cx="20" cy="7"  r="2"   fill="#4F7A30"/>
+        <circle cx="28" cy="11" r="1.5" fill="#9DBE3D"/>
+        <circle cx="34" cy="15" r="2.2" fill="#F2B044"/>
+        <circle cx="42" cy="20" r="1.7" fill="#F5A06B"/>
+        <circle cx="50" cy="22" r="1.5" fill="#6B9E47"/>
+        <circle cx="58" cy="20" r="1.2" fill="#9DBE3D"/>
+      </svg>
+      <span style={{display:'flex',flexDirection:'column'}}>
+        <span style={{fontFamily:fonts.script,fontSize:small?22:26,color:C.greenDeep,marginBottom:-3,lineHeight:0.9}}>Pilates</span>
+        <span style={{fontFamily:fonts.display,fontWeight:500,fontSize:small?7:8,letterSpacing:'0.18em',textTransform:'uppercase',color:C.orangeDeep}}>Nathalie Cadotte</span>
+      </span>
+    </div>
+  );
+}
+
+function MobileFAQ({ q, a, open: defaultOpen }) {
+  const [open, setOpen] = useState(!!defaultOpen);
+  return (
+    <div onClick={() => setOpen(!open)} style={{
+      background: open ? '#fff' : C.grayCard,
+      border: open ? `1px solid ${C.line}` : 'none',
+      borderRadius: open ? 18 : 999,
+      padding: open ? '16px 18px' : '14px 18px',
+      cursor:'pointer', transition:'all .25s ease',
+      boxShadow: open ? '0 4px 14px rgba(0,0,0,.05)' : 'none',
+    }}>
+      <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
+        <span style={{fontWeight:600,fontSize:13,lineHeight:1.35}}>{q}</span>
+        <span style={{
+          width:22,height:22,borderRadius:'50%',
+          border:`2px solid ${C.green}`,
+          background: open ? C.green : 'transparent',
+          color: open ? '#fff' : C.green,
+          fontSize:13,fontWeight:700,
+          display:'grid',placeItems:'center',flexShrink:0,
+        }}>{open ? '−' : '+'}</span>
+      </div>
+      {open && <p style={{fontSize:13,color:C.inkSoft,lineHeight:1.55,margin:'12px 0 0'}}>{a}</p>}
+    </div>
+  );
+}
+
+function MobileLanding() {
+  return (
+    <div style={{background:'#fff',color:C.ink,fontFamily:fonts.sans,fontSize:14,lineHeight:1.6}}>
+
+      {/* Spacer for status bar + dynamic island */}
+      <div style={{height:54,background:'#fff'}}/>
+
+      {/* Urgency strip */}
+      <div style={{background:C.ink,color:'#fff',fontSize:11,padding:'8px 14px',textAlign:'center',letterSpacing:'0.02em'}}>
+        <b style={{color:C.orange,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',fontSize:10}}>● Cohorte sept 2026</b>
+        <span style={{margin:'0 8px',opacity:.5}}>·</span>
+        <span>4 places restantes</span>
+      </div>
+
+      {/* Top bar */}
+      <header style={{
+        position:'sticky',top:0,zIndex:5,
+        background:'rgba(255,255,255,.96)',backdropFilter:'blur(10px)',
+        borderBottom:`1px solid ${C.line}`,
+        padding:'10px 16px',display:'flex',alignItems:'center',justifyContent:'space-between',
+      }}>
+        <Logo small />
+        <button style={{
+          background:C.orange,color:'#fff',border:'none',
+          padding:'9px 14px',borderRadius:999,
+          fontFamily:fonts.sans,fontWeight:700,fontSize:10,letterSpacing:'0.12em',textTransform:'uppercase',
+        }}>M'inscrire</button>
+      </header>
+
+      {/* Hero */}
+      <section style={{
+        position:'relative',
+        background:'linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.5)), radial-gradient(120% 80% at 50% 30%, #5e8843 0%, #3d5e25 100%)',
+        color:'#fff',padding:'28px 22px 32px',overflow:'hidden',
+      }}>
+        <div style={{position:'absolute',inset:0,
+          backgroundImage:`radial-gradient(circle at 12% 18%, rgba(180,210,140,.4), transparent 30%),
+            radial-gradient(circle at 78% 28%, rgba(180,210,140,.35), transparent 32%),
+            radial-gradient(circle at 38% 78%, rgba(95,135,55,.5), transparent 40%)`,
+          mixBlendMode:'screen',pointerEvents:'none'}}/>
+
+        <div style={{position:'relative',zIndex:2}}>
+          <span style={{
+            display:'inline-flex',alignItems:'center',gap:8,
+            background:'rgba(255,255,255,.12)',backdropFilter:'blur(10px)',
+            padding:'6px 14px',borderRadius:999,fontSize:9,fontWeight:700,
+            letterSpacing:'0.16em',textTransform:'uppercase',
+            border:'1px solid rgba(255,255,255,.2)',marginBottom:18,
+          }}>
+            <span style={{width:6,height:6,borderRadius:'50%',background:C.orange}}/>
+            Peak Pilates® · PPC-1
+          </span>
+
+          <h1 style={{
+            fontFamily:fonts.display,fontWeight:700,fontSize:32,lineHeight:1.05,
+            textTransform:'uppercase',color:'#fff',margin:'0 0 12px',letterSpacing:'0.005em',
+          }}>
+            Apprendre à voir.<br/>Apprendre à guider.
+            <span style={{
+              display:'block',fontFamily:fonts.script,textTransform:'none',
+              fontWeight:400,color:C.yellowSoft,fontSize:30,letterSpacing:0,marginTop:4,lineHeight:0.9,
+            }}>une formation classique complète.</span>
+          </h1>
+
+          <p style={{fontSize:13.5,lineHeight:1.55,color:'rgba(255,255,255,.92)',margin:'0 0 22px'}}>
+            École reconnue mondialement depuis plus de 20 ans. Tous les appareils inclus dès le niveau 1.
+          </p>
+
+          {/* VSL portrait */}
+          <div style={{
+            position:'relative',aspectRatio:'9/14',borderRadius:14,overflow:'hidden',
+            background:'linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), radial-gradient(120% 80% at 50% 35%, #6B5A3F 0%, #2C2418 100%)',
+            boxShadow:'0 16px 40px -12px rgba(0,0,0,.5)',marginBottom:18,
+          }}>
+            <span style={{
+              position:'absolute',top:14,left:14,
+              padding:'5px 11px',borderRadius:999,
+              background:'rgba(255,255,255,.15)',backdropFilter:'blur(10px)',
+              fontSize:9,fontWeight:700,letterSpacing:'0.16em',textTransform:'uppercase',
+              border:'1px solid rgba(255,255,255,.22)',color:'#fff',
+              display:'inline-flex',alignItems:'center',gap:6,
+            }}>
+              <span style={{width:5,height:5,borderRadius:'50%',background:C.orange}}/>Vidéo · Noémie
+            </span>
+            <button style={{
+              position:'absolute',left:'50%',top:'50%',transform:'translate(-50%,-50%)',
+              width:64,height:64,borderRadius:'50%',background:C.orange,color:'#fff',
+              border:'none',cursor:'pointer',display:'grid',placeItems:'center',
+              boxShadow:'0 10px 30px rgba(245,160,107,.55)',
+            }}>
+              <svg width={22} height={22} viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div style={{
+              position:'absolute',bottom:14,left:14,right:14,
+              fontFamily:fonts.italic,fontStyle:'italic',fontSize:13,lineHeight:1.4,color:'#fff',
+            }}>
+              « Enseigner le Pilates, c'est apprendre à voir. »
+            </div>
+          </div>
+
+          <button style={{
+            width:'100%',background:C.orange,color:'#fff',border:'none',
+            padding:'16px',borderRadius:999,
+            fontFamily:fonts.sans,fontWeight:700,fontSize:12,letterSpacing:'0.14em',textTransform:'uppercase',
+          }}>Réserver ma place →</button>
+
+          {/* Trust row */}
+          <div style={{
+            display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10,
+            marginTop:24,paddingTop:20,borderTop:'1px solid rgba(255,255,255,.18)',
+          }}>
+            {[
+              ['20+ ans','École reconnue'],
+              ['Tous appareils','Inclus dès N1'],
+              ['4 mois','Pour certifier'],
+            ].map(([n,l],i)=>(
+              <div key={i} style={{textAlign:'center'}}>
+                <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:14,color:'#fff',marginBottom:2}}>{n}</div>
+                <div style={{fontSize:9,color:'rgba(255,255,255,.7)',letterSpacing:'0.06em',textTransform:'uppercase',fontWeight:600}}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Equip ticker */}
+      <div style={{background:C.cream,padding:'14px 0',overflow:'hidden',borderBottom:`1px solid ${C.line}`}}>
+        <div style={{display:'flex',gap:24,whiteSpace:'nowrap',fontFamily:fonts.display,fontWeight:600,fontSize:12,color:C.greenDeep,textTransform:'uppercase',letterSpacing:'0.08em',animation:'mscroll 25s linear infinite'}}>
+          <span>Reformer</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Tour / Cadillac</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Chaise</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Spine Corrector</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Ladder Barrel</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Sol</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Reformer</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Tour / Cadillac</span><span style={{color:C.orange,fontSize:6}}>●</span>
+          <span>Chaise</span><span style={{color:C.orange,fontSize:6}}>●</span>
+        </div>
+        <style>{`@keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}`}</style>
+      </div>
+
+      {/* ROI */}
+      <section style={{padding:'40px 22px',background:'#fff'}}>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:22,textTransform:'uppercase',lineHeight:1.15,textAlign:'center',margin:'0 0 8px'}}>Une carrière en 4 mois</h2>
+        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
+        <div style={{display:'flex',flexDirection:'column',gap:10}}>
+          <div style={{border:`1px solid ${C.line}`,borderRadius:14,padding:'20px 22px'}}>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>75 $<small style={{fontSize:14,color:C.inkSoft,marginLeft:4}}>/ h</small></div>
+            <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>Tarif moyen d'un cours privé Pilates au Québec</div>
+          </div>
+          <div style={{background:C.green,borderRadius:14,padding:'20px 22px',color:'#fff'}}>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,lineHeight:1}}>52 sem.</div>
+            <div style={{fontSize:12.5,color:'rgba(255,255,255,.92)',lineHeight:1.5,marginTop:8}}>Pour rentabiliser ta formation à 1 cours privé/semaine</div>
+          </div>
+          <div style={{border:`1px solid ${C.line}`,borderRadius:14,padding:'20px 22px'}}>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>100 %</div>
+            <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>De nos étudiants enseignent dès la fin du Module 3</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Yellow callout */}
+      <section style={{padding:'8px 22px 40px',background:'#fff'}}>
+        <div style={{
+          background:C.yellow,borderRadius:'24px 80px 24px 24px',
+          padding:'34px 28px',color:'#fff',position:'relative',overflow:'hidden',
+        }}>
+          <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:18,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 10px',color:'#fff'}}>Qu'obtiendras-tu une fois certifiée ?</h2>
+          <span style={{display:'block',width:50,height:2,background:'rgba(255,255,255,.55)',marginBottom:18}}/>
+          <ul style={{listStyle:'none',padding:0,margin:'0 0 24px'}}>
+            {[
+              <>Enseigner Pilates niveaux base &amp; intermédiaire <b>sur tous les appareils</b> dès le jour 1.</>,
+              <>Devenir un candidat versatile dans n'importe quel studio.</>,
+              <>La fierté d'être certifié(e) d'une école dont la réputation n'est plus à faire.</>,
+            ].map((t,i)=>(
+              <li key={i} style={{display:'flex',gap:10,padding:'7px 0',fontSize:13,lineHeight:1.5,color:'#fff'}}>
+                <span style={{flexShrink:0,width:6,height:6,borderRadius:'50%',background:'#fff',marginTop:7}}/>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+          <button style={{background:'#fff',color:C.ink,border:'none',padding:'12px 22px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.14em',textTransform:'uppercase'}}>M'inscrire →</button>
+        </div>
+      </section>
+
+      {/* Modules */}
+      <section style={{padding:'40px 22px',background:C.cream}}>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:22,textTransform:'uppercase',lineHeight:1.15,textAlign:'center',margin:'0 0 8px'}}>Le programme</h2>
+        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
+        <div style={{display:'flex',flexDirection:'column',gap:12}}>
+          {[
+            ['01','Sept 2026','Les fondations','Principes · Powerhouse · 5 étapes Peak · travail au sol.','19 — 20 sept'],
+            ['02','Oct 2026','Introduction aux appareils','Reformer, Tour, Barils · transitions · ajustements.','17 — 18 oct'],
+            ['03','Nov 2026','Niveau intermédiaire','Chaise · mouvements interm. · structurer une séance.','14 — 15 nov'],
+            ['04','Déc 2026','Enseignement & examens','Pratique d\u2019enseignement · révision · examens 3 volets.','12 — 13 déc'],
+          ].map(([n,m,t,d,date])=>(
+            <article key={n} style={{background:'#fff',borderRadius:14,padding:'22px 22px',border:`1px solid ${C.line}`}}>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:6}}>
+                <span style={{fontFamily:fonts.display,fontWeight:700,fontSize:11,letterSpacing:'0.12em',textTransform:'uppercase',color:C.orangeDeep}}>Module {n}</span>
+                <span style={{fontFamily:fonts.italic,fontStyle:'italic',fontSize:13,color:C.greenDeep}}>{m}</span>
+              </div>
+              <h4 style={{fontFamily:fonts.display,fontWeight:700,fontSize:15,textTransform:'uppercase',letterSpacing:'0.01em',margin:'4px 0 10px'}}>{t}</h4>
+              <p style={{fontSize:13,color:C.inkSoft,lineHeight:1.55,margin:'0 0 14px'}}>{d}</p>
+              <div style={{paddingTop:10,borderTop:`1px dashed ${C.line}`,fontSize:10,color:C.inkSoft,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:700}}>{date} · 20 h</div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Instructor */}
+      <section style={{padding:'40px 22px',background:'#fff'}}>
+        <div style={{
+          aspectRatio:'4/5',borderRadius:8,overflow:'hidden',marginBottom:22,
+          background:'linear-gradient(160deg, #B8956A 0%, #6B5A3F 100%)',position:'relative',
+          boxShadow:'0 18px 40px -16px rgba(0,0,0,.3)',
+        }}>
+          <div style={{position:'absolute',inset:0,background:'radial-gradient(60% 50% at 50% 35%, rgba(255,235,210,.4), transparent 60%)'}}/>
+          <div style={{position:'absolute',left:18,bottom:18,color:'#fff'}}>
+            <b style={{fontFamily:fonts.display,fontSize:18,display:'block',marginBottom:2}}>Noémie Plante</b>
+            <span style={{fontSize:9,letterSpacing:'0.14em',textTransform:'uppercase',opacity:.85}}>Maître-Instructeur Peak Pilates®</span>
+          </div>
+        </div>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px'}}>Un mot sur notre Maître-Instructeur</h2>
+        <span style={{display:'block',width:120,height:2,background:C.yellow,marginBottom:18}}/>
+        <p style={{fontSize:14,lineHeight:1.65,color:C.inkSoft,margin:'0 0 14px'}}>Noémie enseigne le Pilates depuis 10 ans. En 2025, elle obtient sa certification de <b>Maître-Instructeur Peak Pilates®</b> — une reconnaissance internationale rare au Québec.</p>
+        <div style={{fontFamily:fonts.italic,fontStyle:'italic',fontSize:15,lineHeight:1.5,borderLeft:`3px solid ${C.orange}`,padding:'6px 0 6px 16px',margin:'18px 0',color:C.ink}}>
+          « Peak Pilates® offre une formation rigoureuse avec une emphase particulière sur l'aspect pédagogique de l'enseignement. »
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section style={{padding:'56px 22px',background:C.yellow}}>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',textAlign:'center',color:C.ink}}>Ce que nos étudiants disent</h2>
+        <span style={{display:'block',width:60,height:2,background:'#fff',margin:'0 auto 28px'}}/>
+        {[
+          ['SI','Sahaar Ismaili',"Lorsque j'ai commencé cette formation, j'avais très peu d'expérience et j'avoue avoir été un peu intimidée. Je me suis sentie soutenue et encouragée. Cette expérience m'a rappelé qu'il n'est pas nécessaire d'être parfait pour se lancer."],
+          ['RR','Roula Rassi',"La formation Peak Pilates a été enrichissante. Elle m'a permis de comprendre mon corps, de gagner en confiance et de réaliser l'importance de la précision du mouvement. J'en sors avec une pratique plus consciente."],
+        ].map(([i,n,t],k)=>(
+          <div key={k} style={{
+            background:'#fff',borderRadius:14,padding:'48px 22px 24px',position:'relative',marginBottom:k===0?44:0,
+            boxShadow:'0 6px 20px rgba(0,0,0,.06)',
+          }}>
+            <div style={{position:'absolute',top:-22,left:'50%',transform:'translateX(-50%)',width:46,height:46,borderRadius:'50%',background:'#fff',display:'grid',placeItems:'center',boxShadow:'0 4px 12px rgba(0,0,0,.1)',fontFamily:fonts.italic,fontStyle:'italic',fontSize:32,color:C.orange,lineHeight:1,paddingTop:4}}>"</div>
+            <blockquote style={{fontFamily:fonts.italic,fontStyle:'italic',fontSize:14,lineHeight:1.55,margin:'0 0 18px',color:C.ink}}>{t}</blockquote>
+            <div style={{display:'flex',alignItems:'center',gap:12,paddingTop:14,borderTop:`1px solid ${C.line}`}}>
+              <div style={{width:38,height:38,borderRadius:'50%',background:`linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`,color:'#fff',display:'grid',placeItems:'center',fontFamily:fonts.display,fontWeight:700,fontSize:13}}>{i}</div>
+              <div>
+                <b style={{fontWeight:700,fontSize:13,display:'block'}}>{n}</b>
+                <span style={{fontSize:9,color:C.inkSoft,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:600}}>Cohorte PPC-1</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Investment */}
+      <section style={{padding:'48px 22px',background:C.cream}}>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',textAlign:'center'}}>L'investissement</h2>
+        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
+        <div style={{background:'#fff',borderRadius:18,padding:'30px 24px',border:`1px solid ${C.line}`,boxShadow:'0 18px 40px -22px rgba(0,0,0,.18)'}}>
+          <div style={{fontSize:10,fontWeight:700,letterSpacing:'0.16em',textTransform:'uppercase',color:C.orangeDeep,marginBottom:8}}>PPC-1 · Niveau 1</div>
+          <h3 style={{fontFamily:fonts.display,fontWeight:700,fontSize:18,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 12px'}}>Certification classique complète</h3>
+          <span style={{display:'block',width:60,height:2,background:C.yellow,marginBottom:18}}/>
+          <div style={{fontFamily:fonts.display,fontSize:48,lineHeight:1,fontWeight:700,color:C.green}}>3 850 $<small style={{fontSize:14,fontWeight:600,color:C.inkSoft,marginLeft:4}}>+ tx</small></div>
+          <div style={{fontSize:12,color:C.inkSoft,margin:'8px 0 18px'}}>Plans de paiement disponibles · Annulation libre 30 j avant.</div>
+          <ul style={{listStyle:'none',padding:0,margin:'0 0 22px'}}>
+            {[
+              ['Plateforme PeakU 24/7','Matériel didactique + vidéos'],
+              ['Tableau de bord personnel','Suivi · CECs · certificats'],
+              ['Examen PPC-1 (3 volets)','Enseignement · pratique · théorie'],
+              ['Accès au Maître-Instructeur','+ groupe Facebook privé'],
+              ['Accès au studio à Laval','Pratique, enseignement, observation'],
+            ].map(([t,d],i)=>(
+              <li key={i} style={{display:'flex',gap:10,padding:'10px 0',fontSize:12.5,borderBottom:i<4?`1px solid ${C.line}`:'none'}}>
+                <span style={{flexShrink:0,width:18,height:18,borderRadius:'50%',background:C.green,color:'#fff',fontSize:10,fontWeight:700,display:'grid',placeItems:'center',marginTop:1}}>✓</span>
+                <div><strong style={{fontWeight:700,display:'block'}}>{t}</strong><span style={{color:C.inkSoft,fontSize:11.5}}>{d}</span></div>
+              </li>
+            ))}
+          </ul>
+          <button style={{width:'100%',background:C.orange,color:'#fff',border:'none',padding:'15px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11.5,letterSpacing:'0.14em',textTransform:'uppercase'}}>M'inscrire maintenant →</button>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section style={{padding:'48px 22px',background:'#fff'}}>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',textAlign:'center'}}>Foire aux questions</h2>
+        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
+        <div style={{display:'flex',flexDirection:'column',gap:10}}>
+          <MobileFAQ open q="Je n'ai pas beaucoup d'expérience. Est-ce pour moi ?" a="Le seul prérequis est 30 heures de Pilates et une connaissance de base de l'anatomie. Pour les restrictions physiques, écris-nous." />
+          <MobileFAQ q="Avez-vous des plans de paiement ?" a="Oui — contacte-nous à info@pilatesnathaliecadotte.com pour en faire la demande." />
+          <MobileFAQ q="Quand puis-je commencer à enseigner ?" a="Dès la fin du Module 3, mi-novembre 2026. Certification reconnue mondialement à la fin du Module 4." />
+          <MobileFAQ q="Pourquoi Peak Pilates® ?" a="20+ ans d'existence, lignée Joseph → Romana → Clare Dunphy, tous appareils inclus dès le N1." />
+          <MobileFAQ q="Annulation et report ?" a="Sans frais jusqu'à 30 j avant le début. Au-delà, frais de report de 120 $." />
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section style={{padding:'60px 22px',background:C.green,color:'#fff',textAlign:'center',position:'relative',overflow:'hidden'}}>
+        <div style={{position:'absolute',top:'-30%',right:'-25%',width:'80%',height:'130%',background:C.greenDeep,transform:'rotate(-12deg)'}}/>
+        <div style={{position:'relative',zIndex:2}}>
+          <div style={{fontFamily:fonts.script,fontSize:34,color:C.yellowSoft,lineHeight:1,marginBottom:6}}>la prochaine cohorte</div>
+          <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:26,textTransform:'uppercase',lineHeight:1.1,margin:'0 0 16px',color:'#fff'}}>Débute le 19 sept 2026.</h2>
+          <p style={{fontSize:13.5,color:'rgba(255,255,255,.92)',lineHeight:1.6,margin:'0 0 24px'}}>Une formation complète, étape par étape. Apprendre à voir et à guider.</p>
+          <button style={{background:C.orange,color:'#fff',border:'none',padding:'15px 28px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11.5,letterSpacing:'0.14em',textTransform:'uppercase'}}>Réserver ma place →</button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{background:'#2C3A2A',color:'rgba(255,255,255,.7)',padding:'36px 22px 80px',fontSize:12.5}}>
+        <Logo />
+        <p style={{marginTop:14,marginBottom:18,lineHeight:1.6}}>Le studio de Pilates par excellence à Laval. Dix ans à transmettre la méthode classique.</p>
+        <h5 style={{fontFamily:fonts.display,fontWeight:700,fontSize:10,letterSpacing:'0.16em',textTransform:'uppercase',color:'#fff',margin:'18px 0 8px'}}>Coordonnées</h5>
+        <p style={{margin:0,lineHeight:1.7}}>3852 Boul. Sainte-Rose · Laval (Qc)<br/>(450) 937-8887<br/>info@pilatesnathaliecadotte.com</p>
+        <div style={{paddingTop:18,marginTop:24,borderTop:'1px solid rgba(255,255,255,.12)',fontSize:10,color:'rgba(255,255,255,.5)'}}>
+          © 2026 Pilates Nathalie Cadotte
+        </div>
+      </footer>
+
+      {/* Sticky bottom CTA */}
+      <div style={{
+        position:'sticky',bottom:0,
+        background:'rgba(44,58,42,.96)',backdropFilter:'blur(10px)',
+        borderTop:`3px solid ${C.orange}`,
+        padding:'10px 14px',
+        display:'flex',alignItems:'center',justifyContent:'space-between',gap:10,
+      }}>
+        <div style={{color:'#fff',fontSize:11,lineHeight:1.3}}>
+          <b style={{fontFamily:fonts.display,fontWeight:700,fontSize:12,textTransform:'uppercase',letterSpacing:'0.04em',display:'block'}}>3 850 $ + tx</b>
+          <span style={{opacity:.7,fontSize:10}}>4 places restantes</span>
+        </div>
+        <button style={{background:C.orange,color:'#fff',border:'none',padding:'11px 18px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.12em',textTransform:'uppercase',whiteSpace:'nowrap'}}>M'inscrire →</button>
+      </div>
+
+    </div>
+  );
+}
+
+function App(){
+  return (
+    <IOSDevice width={402} height={874}>
+      <MobileLanding />
+    </IOSDevice>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('mobile-root')).render(<App />);
+</script>
+
+</body>
+</html>
