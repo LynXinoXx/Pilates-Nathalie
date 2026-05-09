@@ -236,16 +236,17 @@ function MobileLanding() {
 
           {/* Trust row */}
           <div style={{
-            display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10,
+            display:'grid',gridTemplateColumns:'1fr',gap:10,
             marginTop:24,paddingTop:20,borderTop:'1px solid rgba(255,255,255,.18)',
           }}>
             {[
               ['20+ ans','École reconnue'],
               ['Tous appareils','Inclus dès N1'],
               ['4 mois','Pour certifier'],
+              ['4 places','Cohorte limitée'],
             ].map(([n,l],i)=>(
-              <div key={i} style={{textAlign:'center'}}>
-                <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:14,color:'#fff',marginBottom:2}}>{n}</div>
+              <div key={i} style={{background:'rgba(255,255,255,.1)',border:'1px solid rgba(255,255,255,.16)',borderRadius:14,padding:'14px 16px'}}>
+                <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:26,color:'#fff',marginBottom:2}}>{n}</div>
                 <div style={{fontSize:9,color:'rgba(255,255,255,.7)',letterSpacing:'0.06em',textTransform:'uppercase',fontWeight:600}}>{l}</div>
               </div>
             ))}
@@ -275,7 +276,7 @@ function MobileLanding() {
         <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
         <div style={{display:'flex',flexDirection:'column',gap:10}}>
           <div style={{border:`1px solid ${C.line}`,borderRadius:14,padding:'20px 22px'}}>
-            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>$75<small style={{fontSize:14,color:C.inkSoft,marginLeft:4}}>/ h</small></div>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>75$<small style={{fontSize:14,color:C.inkSoft,marginLeft:4}}>/ h</small></div>
             <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>Tarif moyen d'un cours privé Pilates au Québec</div>
           </div>
           <div style={{background:C.green,borderRadius:14,padding:'20px 22px',color:'#fff'}}>
