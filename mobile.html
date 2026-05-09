@@ -263,8 +263,9 @@ function MobileLanding() {
 
       {/* ROI */}
       <section style={{padding:'40px 22px',background:'#fff'}}>
-        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:22,textTransform:'uppercase',lineHeight:1.15,textAlign:'center',margin:'0 0 8px'}}>Une formation en 4 mois</h2>
-        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:22,textTransform:'uppercase',lineHeight:1.15,textAlign:'center',margin:'0 0 8px'}}>Une formation concrète en 4 mois</h2>
+        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 18px'}}/>
+        <p style={{fontSize:13,color:C.inkSoft,lineHeight:1.6,textAlign:'center',margin:'0 auto 24px',maxWidth:320}}>Dans un marché en pleine croissance, distingue-toi par la qualité de ta formation : une approche pour devenir une personne profondément compétente, crédible et recherchée.</p>
         <div style={{display:'flex',flexDirection:'column',gap:10}}>
           <div style={{border:`1px solid ${C.line}`,borderRadius:14,padding:'20px 22px'}}>
             <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>80 h</div>
@@ -293,6 +294,7 @@ function MobileLanding() {
             {[
               <>Enseigner Pilates niveaux base &amp; intermédiaire <b>sur tous les appareils</b> dès le jour 1.</>,
               <>Devenir un candidat versatile dans n'importe quel studio.</>,
+              <>Une banque de studios pour référer nos finissant(e)s au moment de se lancer.</>,
               <>La fierté d'être certifié(e) d'une école dont la réputation n'est plus à faire.</>,
             ].map((t,i)=>(
               <li key={i} style={{display:'flex',gap:10,padding:'7px 0',fontSize:13,lineHeight:1.5,color:'#fff'}}>
@@ -392,8 +394,9 @@ function MobileLanding() {
               ['3 évaluations PPC-1','Théorie · pratique personnelle · enseignement'],
               ['Accès au Maître-Instructeur','+ groupe Facebook privé'],
               ['Accès au studio à Laval','Pratique, enseignement, observation'],
+              ['Banque de studios','Pour référer nos finissant(e)s'],
             ].map(([t,d],i)=>(
-              <li key={i} style={{display:'flex',gap:10,padding:'10px 0',fontSize:12.5,borderBottom:i<4?`1px solid ${C.line}`:'none'}}>
+              <li key={i} style={{display:'flex',gap:10,padding:'10px 0',fontSize:12.5,borderBottom:i<5?`1px solid ${C.line}`:'none'}}>
                 <span style={{flexShrink:0,width:18,height:18,borderRadius:'50%',background:C.green,color:'#fff',fontSize:10,fontWeight:700,display:'grid',placeItems:'center',marginTop:1}}>✓</span>
                 <div><strong style={{fontWeight:700,display:'block'}}>{t}</strong><span style={{color:C.inkSoft,fontSize:11.5}}>{d}</span></div>
               </li>
