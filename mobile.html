@@ -6,10 +6,10 @@
 <title>Formation Peak Pilates® — Mobile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mulish:wght@300;400;500;600;700&family=Sacramento&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salsa&family=Mulish:wght@300;400;500;600;700&family=Sacramento&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
 <style>
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:#EEE9DF;min-height:100vh;font-family:"Mulish",ui-sans-serif,system-ui,sans-serif;color:#2D2D2D}
+  html,body{margin:0;padding:0;background:#EEE9DF;min-height:100vh;font-family:'Mulish',Helvetica,Arial,Lucida,sans-serif;color:#2D2D2D}
   .stage{
     min-height:100vh;
     display:flex;align-items:flex-start;justify-content:center;
@@ -19,19 +19,19 @@
     max-width:340px;padding-top:80px;
   }
   .label-col h1{
-    font-family:"Quicksand",sans-serif;font-weight:700;
+    font-family:"Salsa",cursive;font-weight:700;
     font-size:42px;line-height:1.05;letter-spacing:0.005em;text-transform:uppercase;
     margin:0 0 20px;color:#2D2D2D;
   }
   .label-col h1 .scr{
     display:block;font-family:"Sacramento",cursive;
-    font-weight:400;text-transform:none;font-size:48px;color:#6B9E47;line-height:0.9;margin-bottom:6px;
+    font-weight:400;text-transform:none;font-size:48px;color:#54973e;line-height:0.9;margin-bottom:6px;
   }
   .label-col p{font-size:15px;line-height:1.6;color:#5A5A5A;margin:0 0 22px}
   .label-col .underline{display:block;width:80px;height:2px;background:#F2B044;margin:0 0 22px}
   .pill{
     display:inline-flex;align-items:center;gap:10px;
-    background:#F5A06B;color:#fff;padding:14px 24px;border-radius:999px;
+    background:#f59d61;color:#fff;padding:14px 24px;border-radius:999px;
     font-weight:700;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
     text-decoration:none;
   }
@@ -66,38 +66,35 @@
 const { useState } = React;
 
 const C = {
-  green: '#6B9E47', greenDeep: '#4F7A30', greenDark: '#3D5F26',
-  orange: '#F5A06B', orangeDeep: '#E78A4F',
+  green: '#54973e', greenDeep: '#4F7A30', greenDark: '#54973e',
+  orange: '#f59d61', orangeDeep: '#E78A4F',
   yellow: '#F2B044', yellowSoft: '#F4BE5F',
   cream: '#FAF8F4', grayCard: '#ECEBE8', line: '#E0DEDA',
   ink: '#2D2D2D', inkSoft: '#5A5A5A',
 };
 
 const fonts = {
-  display: '"Quicksand", sans-serif',
-  sans: '"Mulish", sans-serif',
+  display: '"Salsa", cursive',
+  sans: "'Mulish', Helvetica, Arial, Lucida, sans-serif",
   script: '"Sacramento", cursive',
   italic: '"Cormorant Garamond", serif',
 };
 
 function Logo({ small }) {
+  const logoHeight = small ? 56 : 72;
   return (
-    <div style={{display:'flex',alignItems:'center',gap:8,lineHeight:1}}>
-      <svg width={small?44:52} height={small?28:34} viewBox="0 0 64 42">
-        <circle cx="6"  cy="14" r="2.2" fill="#9DBE3D"/>
-        <circle cx="13" cy="9"  r="1.7" fill="#6B9E47"/>
-        <circle cx="20" cy="7"  r="2"   fill="#4F7A30"/>
-        <circle cx="28" cy="11" r="1.5" fill="#9DBE3D"/>
-        <circle cx="34" cy="15" r="2.2" fill="#F2B044"/>
-        <circle cx="42" cy="20" r="1.7" fill="#F5A06B"/>
-        <circle cx="50" cy="22" r="1.5" fill="#6B9E47"/>
-        <circle cx="58" cy="20" r="1.2" fill="#9DBE3D"/>
-      </svg>
-      <span style={{display:'flex',flexDirection:'column'}}>
-        <span style={{fontFamily:fonts.script,fontSize:small?22:26,color:C.greenDeep,marginBottom:-3,lineHeight:0.9}}>Pilates</span>
-        <span style={{fontFamily:fonts.display,fontWeight:500,fontSize:small?7:8,letterSpacing:'0.18em',textTransform:'uppercase',color:C.orangeDeep}}>Nathalie Cadotte</span>
-      </span>
-    </div>
+    <img
+      src="assets/images/pilates-nathalie-cadotte-logo.png"
+      alt="Pilates Nathalie Cadotte"
+      style={{
+        height: logoHeight,
+        width: 'auto',
+        display: 'block',
+        background: small ? 'transparent' : '#fff',
+        borderRadius: small ? 0 : 8,
+        padding: small ? 0 : '6px 10px',
+      }}
+    />
   );
 }
 
@@ -139,7 +136,7 @@ function MobileLanding() {
       <div style={{background:C.ink,color:'#fff',fontSize:11,padding:'8px 14px',textAlign:'center',letterSpacing:'0.02em'}}>
         <b style={{color:C.orange,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',fontSize:10}}>● Cohorte sept 2026</b>
         <span style={{margin:'0 8px',opacity:.5}}>·</span>
-        <span>4 places restantes</span>
+        <span>10 places disponibles</span>
       </div>
 
       {/* Top bar */}
@@ -160,15 +157,9 @@ function MobileLanding() {
       {/* Hero */}
       <section style={{
         position:'relative',
-        background:'linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.5)), radial-gradient(120% 80% at 50% 30%, #5e8843 0%, #3d5e25 100%)',
+        background:C.greenDark,
         color:'#fff',padding:'28px 22px 32px',overflow:'hidden',
       }}>
-        <div style={{position:'absolute',inset:0,
-          backgroundImage:`radial-gradient(circle at 12% 18%, rgba(180,210,140,.4), transparent 30%),
-            radial-gradient(circle at 78% 28%, rgba(180,210,140,.35), transparent 32%),
-            radial-gradient(circle at 38% 78%, rgba(95,135,55,.5), transparent 40%)`,
-          mixBlendMode:'screen',pointerEvents:'none'}}/>
-
         <div style={{position:'relative',zIndex:2}}>
           <span style={{
             display:'inline-flex',alignItems:'center',gap:8,
@@ -193,7 +184,7 @@ function MobileLanding() {
           </h1>
 
           <p style={{fontSize:13.5,lineHeight:1.55,color:'rgba(255,255,255,.92)',margin:'0 0 22px'}}>
-            École reconnue mondialement depuis plus de 20 ans. Tous les appareils inclus dès le niveau 1.
+            Peak Pilates® est une école reconnue mondialement depuis plus de 20 ans. Tous les appareils sont inclus dès le niveau 1.
           </p>
 
           {/* VSL portrait */}
@@ -240,10 +231,10 @@ function MobileLanding() {
             marginTop:24,paddingTop:20,borderTop:'1px solid rgba(255,255,255,.18)',
           }}>
             {[
-              ['20+ ans','École reconnue'],
-              ['Tous appareils','Inclus dès N1'],
+              ['20+ ans','Peak Pilates®'],
+              ['Tous les appareils','Inclus dès N1'],
               ['4 mois','Pour certifier'],
-              ['4 places','Cohorte limitée'],
+              ['10 places','Cohorte limitée'],
             ].map(([n,l],i)=>(
               <div key={i} style={{background:'rgba(255,255,255,.1)',border:'1px solid rgba(255,255,255,.16)',borderRadius:14,padding:'14px 16px'}}>
                 <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:26,color:'#fff',marginBottom:2}}>{n}</div>
@@ -272,20 +263,20 @@ function MobileLanding() {
 
       {/* ROI */}
       <section style={{padding:'40px 22px',background:'#fff'}}>
-        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:22,textTransform:'uppercase',lineHeight:1.15,textAlign:'center',margin:'0 0 8px'}}>Une carrière en 4 mois</h2>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:22,textTransform:'uppercase',lineHeight:1.15,textAlign:'center',margin:'0 0 8px'}}>Une formation en 4 mois</h2>
         <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 28px'}}/>
         <div style={{display:'flex',flexDirection:'column',gap:10}}>
           <div style={{border:`1px solid ${C.line}`,borderRadius:14,padding:'20px 22px'}}>
-            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>75$<small style={{fontSize:14,color:C.inkSoft,marginLeft:4}}>/ h</small></div>
-            <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>Tarif moyen d'un cours privé Pilates au Québec</div>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>80 h</div>
+            <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>D'instruction en studio, réparties sur 4 modules</div>
           </div>
           <div style={{background:C.green,borderRadius:14,padding:'20px 22px',color:'#fff'}}>
-            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,lineHeight:1}}>52 sem.</div>
-            <div style={{fontSize:12.5,color:'rgba(255,255,255,.92)',lineHeight:1.5,marginTop:8}}>Pour rentabiliser ta formation à 1 cours privé/semaine</div>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,lineHeight:1}}>100 %</div>
+            <div style={{fontSize:12.5,color:'rgba(255,255,255,.92)',lineHeight:1.5,marginTop:8}}>Pensée pour maximiser tes chances de te faire engager en studio</div>
           </div>
           <div style={{border:`1px solid ${C.line}`,borderRadius:14,padding:'20px 22px'}}>
-            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>100 %</div>
-            <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>De nos étudiants enseignent dès la fin du Module 3</div>
+            <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:36,color:C.green,lineHeight:1}}>ROI</div>
+            <div style={{fontSize:12.5,color:C.inkSoft,lineHeight:1.5,marginTop:8}}>Un investissement qui peut se rentabiliser avec tes premiers cours privés</div>
           </div>
         </div>
       </section>
@@ -323,7 +314,7 @@ function MobileLanding() {
             ['01','Sept 2026','Les fondations','Principes · Powerhouse · 5 étapes Peak · travail au sol.','19 — 20 sept'],
             ['02','Oct 2026','Introduction aux appareils','Reformer, Tour, Barils · transitions · ajustements.','17 — 18 oct'],
             ['03','Nov 2026','Niveau intermédiaire','Chaise · mouvements interm. · structurer une séance.','14 — 15 nov'],
-            ['04','Déc 2026','Enseignement & examens','Pratique d\u2019enseignement · révision · examens 3 volets.','12 — 13 déc'],
+            ['04','Déc 2026','Enseignement & évaluations','Pratique d\u2019enseignement · révision · 3 évaluations en fin de module.','12 — 13 déc'],
           ].map(([n,m,t,d,date])=>(
             <article key={n} style={{background:'#fff',borderRadius:14,padding:'22px 22px',border:`1px solid ${C.line}`}}>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:6}}>
@@ -372,7 +363,7 @@ function MobileLanding() {
             boxShadow:'0 6px 20px rgba(0,0,0,.06)',
           }}>
             <div style={{position:'absolute',top:-22,left:'50%',transform:'translateX(-50%)',width:46,height:46,borderRadius:'50%',background:'#fff',display:'grid',placeItems:'center',boxShadow:'0 4px 12px rgba(0,0,0,.1)',fontFamily:fonts.italic,fontStyle:'italic',fontSize:32,color:C.orange,lineHeight:1,paddingTop:4}}>"</div>
-            <blockquote style={{fontFamily:fonts.italic,fontStyle:'italic',fontSize:14,lineHeight:1.55,margin:'0 0 18px',color:C.ink}}>{t}</blockquote>
+            <blockquote style={{fontFamily:fonts.italic,fontStyle:'italic',fontSize:16,lineHeight:1.65,margin:'0 0 18px',color:C.ink,fontWeight:600}}>{t}</blockquote>
             <div style={{display:'flex',alignItems:'center',gap:12,paddingTop:14,borderTop:`1px solid ${C.line}`}}>
               <div style={{width:38,height:38,borderRadius:'50%',background:`linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`,color:'#fff',display:'grid',placeItems:'center',fontFamily:fonts.display,fontWeight:700,fontSize:13}}>{i}</div>
               <div>
@@ -392,13 +383,13 @@ function MobileLanding() {
           <div style={{fontSize:10,fontWeight:700,letterSpacing:'0.16em',textTransform:'uppercase',color:C.orangeDeep,marginBottom:8}}>PPC-1 · Niveau 1</div>
           <h3 style={{fontFamily:fonts.display,fontWeight:700,fontSize:18,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 12px'}}>Certification classique complète</h3>
           <span style={{display:'block',width:60,height:2,background:C.yellow,marginBottom:18}}/>
-          <div style={{fontFamily:fonts.display,fontSize:48,lineHeight:1,fontWeight:700,color:C.green}}>$3,850<small style={{fontSize:14,fontWeight:600,color:C.inkSoft,marginLeft:4}}>+ tx</small></div>
+          <div style={{fontFamily:fonts.display,fontSize:48,lineHeight:1,fontWeight:700,color:C.green}}>3,650$<small style={{fontSize:14,fontWeight:600,color:C.inkSoft,marginLeft:4}}>+ tx</small></div>
           <div style={{fontSize:12,color:C.inkSoft,margin:'8px 0 18px'}}>Plans de paiement disponibles · Annulation libre 30 j avant.</div>
           <ul style={{listStyle:'none',padding:0,margin:'0 0 22px'}}>
             {[
               ['Plateforme PeakU 24/7','Matériel didactique + vidéos'],
               ['Tableau de bord personnel','Suivi · CECs · certificats'],
-              ['Examen PPC-1 (3 volets)','Enseignement · pratique · théorie'],
+              ['3 évaluations PPC-1','Théorie · pratique personnelle · enseignement'],
               ['Accès au Maître-Instructeur','+ groupe Facebook privé'],
               ['Accès au studio à Laval','Pratique, enseignement, observation'],
             ].map(([t,d],i)=>(
@@ -419,8 +410,8 @@ function MobileLanding() {
         <div style={{display:'flex',flexDirection:'column',gap:10}}>
           <MobileFAQ open q="Je n'ai pas beaucoup d'expérience. Est-ce pour moi ?" a="Le seul prérequis est 30 heures de Pilates et une connaissance de base de l'anatomie. Pour les restrictions physiques, écris-nous." />
           <MobileFAQ q="Avez-vous des plans de paiement ?" a="Oui — contacte-nous à info@pilatesnathaliecadotte.com pour en faire la demande." />
-          <MobileFAQ q="Quand puis-je commencer à enseigner ?" a="Dès la fin du Module 3, mi-novembre 2026. Certification reconnue mondialement à la fin du Module 4." />
-          <MobileFAQ q="Pourquoi Peak Pilates® ?" a="20+ ans d'existence, lignée Joseph → Romana → Clare Dunphy, tous appareils inclus dès le N1." />
+          <MobileFAQ q="Quand puis-je commencer à enseigner ?" a="Dès la fin du Module 3, mi-novembre 2026. Les 3 évaluations ont lieu au Module 4." />
+          <MobileFAQ q="Pourquoi Peak Pilates® ?" a="Peak Pilates® est reconnue depuis plus de 20 ans, avec la lignée Joseph → Romana → Clare Dunphy et tous les appareils inclus dès le N1." />
           <MobileFAQ q="Annulation et report ?" a="Sans frais jusqu'à 30 j avant le début. Au-delà, frais de report de $120." />
         </div>
       </section>
@@ -456,8 +447,8 @@ function MobileLanding() {
         display:'flex',alignItems:'center',justifyContent:'space-between',gap:10,
       }}>
         <div style={{color:'#fff',fontSize:11,lineHeight:1.3}}>
-          <b style={{fontFamily:fonts.display,fontWeight:700,fontSize:12,textTransform:'uppercase',letterSpacing:'0.04em',display:'block'}}>$3,850 + tx</b>
-          <span style={{opacity:.7,fontSize:10}}>4 places restantes</span>
+          <b style={{fontFamily:fonts.display,fontWeight:700,fontSize:12,textTransform:'uppercase',letterSpacing:'0.04em',display:'block'}}>3,650$ + tx</b>
+          <span style={{opacity:.7,fontSize:10}}>10 places disponibles</span>
         </div>
         <button style={{background:C.orange,color:'#fff',border:'none',padding:'11px 18px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.12em',textTransform:'uppercase',whiteSpace:'nowrap'}}>M'inscrire →</button>
       </div>

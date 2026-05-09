@@ -6,13 +6,13 @@
 <title>Formation Peak Pilates® — Pilates Nathalie Cadotte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mulish:wght@300;400;500;600;700&family=Sacramento&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salsa&family=Mulish:wght@300;400;500;600;700&family=Sacramento&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
 <style>
   :root{
-    --green:#6B9E47;
+    --green:#54973e;
     --green-deep:#4F7A30;
-    --green-dark:#3D5F26;
-    --orange:#F5A06B;
+    --green-dark:#54973e;
+    --orange:#f59d61;
     --orange-deep:#E78A4F;
     --yellow:#F2B044;
     --yellow-soft:#F4BE5F;
@@ -22,8 +22,8 @@
     --ink:#2D2D2D;
     --ink-soft:#5A5A5A;
     --line:#E0DEDA;
-    --sans:"Mulish", ui-sans-serif, system-ui, sans-serif;
-    --display:"Quicksand", ui-sans-serif, system-ui, sans-serif;
+    --sans:'Mulish', Helvetica, Arial, Lucida, sans-serif;
+    --display:"Salsa", cursive;
     --script:"Sacramento", "Brush Script MT", cursive;
     --italic:"Cormorant Garamond", serif;
     --mw:1200px;
@@ -42,11 +42,9 @@
   .container{max-width:var(--mw);margin:0 auto;padding:0 28px}
 
   /* ── Logo ─────────────────────── */
-  .logo{display:flex;align-items:center;gap:10px;line-height:1}
-  .logo-svg{width:64px;height:42px;flex-shrink:0}
-  .logo-text{display:flex;flex-direction:column}
-  .logo-script{font-family:var(--script);font-size:30px;color:var(--green-deep);line-height:0.9;margin-bottom:-4px}
-  .logo-sub{font-family:var(--display);font-weight:500;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-deep)}
+  .logo{display:inline-flex;align-items:center;line-height:1}
+  .logo-img{height:68px;width:auto;display:block;flex-shrink:0}
+  footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
 
   /* ── Urgency strip ─────────────────────── */
   .urgency-strip{
@@ -128,35 +126,13 @@
   .hero{
     position:relative;
     min-height:520px;
-    background:
-      linear-gradient(180deg, rgba(25,36,20,.34), rgba(21,28,18,.74)),
-      url('assets/images/hero-equipe-peak-pilates.jpg') center 46% / cover no-repeat;
+    background:var(--green-dark);
     color:#fff;
     overflow:hidden;
     padding:100px 0 140px;
     display:flex;align-items:center;
   }
-  /* canopy texture overlay */
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(180,210,140,.4), transparent 30%),
-      radial-gradient(circle at 78% 28%, rgba(180,210,140,.35), transparent 32%),
-      radial-gradient(circle at 38% 78%, rgba(95,135,55,.5), transparent 40%),
-      radial-gradient(circle at 88% 82%, rgba(120,160,80,.35), transparent 35%);
-    mix-blend-mode:screen;
-    pointer-events:none;
-  }
-  .hero::after{
-    /* foliage filigree dots */
-    content:"";position:absolute;inset:0;
-    background-image:
-      radial-gradient(circle, rgba(255,255,255,.05) 2px, transparent 2.5px),
-      radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1.5px);
-    background-size: 60px 60px, 35px 35px;
-    background-position: 0 0, 18px 22px;
-    pointer-events:none;
-  }
+  .hero::before,.hero::after{content:none}
   .hero-grid{
     position:relative;z-index:2;
     display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;
@@ -208,6 +184,7 @@
   /* ── VSL Player ─────────────── */
   .vsl{
     position:relative;
+    width:100%;
     aspect-ratio:9/12;
     border-radius:18px;overflow:hidden;
     background:#1A2420;
@@ -633,8 +610,8 @@
     padding-top:6px;
   }
   .testimonial blockquote{
-    font-family:var(--italic);font-style:italic;font-size:16px;line-height:1.6;
-    margin:0 0 24px;color:var(--ink);
+    font-family:var(--italic);font-style:italic;font-size:18px;line-height:1.7;
+    margin:0 0 24px;color:var(--ink);font-weight:600;
   }
   .testimonial-by{
     display:flex;align-items:center;gap:14px;
@@ -789,9 +766,13 @@
   /* ── Responsive ─────────── */
   @media (max-width: 980px){
     .hero-grid,.differs-grid,.instr-grid,.cert-grid,.faq-grid,.invest-grid,.roi-grid,.badges-row{grid-template-columns:1fr;gap:24px}
+    .hero-copy{display:contents}
+    .hero-grid .vsl{order:1}
+    .hero-trust{order:2}
     .yellow-layout{grid-template-columns:1fr}
     .compare-row{grid-template-columns:1fr 1fr;font-size:12px}
     .compare-row .compare-cell.label{grid-column:1/-1;background:var(--gray-light);padding:10px 18px}
+    .compare-head .compare-cell.label{color:var(--ink);border-bottom:1px solid var(--line)}
     .urgency-strip{font-size:11px;padding:8px 12px;gap:12px}
     .vsl{aspect-ratio:9/14;max-width:440px;margin:0 auto}
     .modules-grid{grid-template-columns:repeat(2,1fr)}
@@ -822,6 +803,7 @@
     .invest-price{font-size:48px}
     .differs-card{padding:32px 24px}
     .equip-track{font-size:14px}
+    .logo-img{height:52px}
     .modules-photo-strip{aspect-ratio:4/3}
     .modules-photo-caption{left:20px;bottom:20px;font-size:17px;max-width:78%}
   }
@@ -832,7 +814,7 @@
 
 <!-- ─── URGENCY STRIP ─────────────── -->
 <div class="urgency-strip">
-  <span><b>● Cohorte automne 2026</b> — début 19 septembre · 4 places restantes</b></span>
+  <span><b>● Cohorte automne 2026</b> — début 19 septembre · 10 places disponibles</b></span>
   <span class="countdown" id="countdown">
     <span class="cd-num" id="cd-d">—</span><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.7">jours</span>
     <span class="cd-sep">·</span>
@@ -846,21 +828,7 @@
 <header class="topbar" data-screen-label="Topbar">
   <div class="topbar-inner">
     <a href="#" class="logo">
-      <svg class="logo-svg" viewBox="0 0 64 42">
-        <!-- Constellation of dots: greens + one orange, evoking original logo -->
-        <circle cx="6"  cy="14" r="2.2" fill="#9DBE3D"/>
-        <circle cx="13" cy="9"  r="1.7" fill="#6B9E47"/>
-        <circle cx="20" cy="7"  r="2"   fill="#4F7A30"/>
-        <circle cx="28" cy="11" r="1.5" fill="#9DBE3D"/>
-        <circle cx="34" cy="15" r="2.2" fill="#F2B044"/>
-        <circle cx="42" cy="20" r="1.7" fill="#F5A06B"/>
-        <circle cx="50" cy="22" r="1.5" fill="#6B9E47"/>
-        <circle cx="58" cy="20" r="1.2" fill="#9DBE3D"/>
-      </svg>
-      <span class="logo-text">
-        <span class="logo-script">Pilates</span>
-        <span class="logo-sub">Nathalie Cadotte</span>
-      </span>
+      <img class="logo-img" src="assets/images/pilates-nathalie-cadotte-logo.png" alt="Pilates Nathalie Cadotte">
     </a>
 
     <nav class="topnav">
@@ -880,7 +848,7 @@
 <section class="hero" data-screen-label="01 Hero">
   <div class="container">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <span class="hero-eyebrow"><span class="dot"></span>Formation Peak Pilates® · PPC-1</span>
         <h1 class="hero-title">
           Apprendre à voir.<br>
@@ -888,17 +856,17 @@
           <span class="accent">Une formation classique complète.</span>
         </h1>
         <p class="hero-lede">
-          Une école reconnue mondialement depuis plus de 20 ans. Tous les appareils — Reformer, Tour, Chaise, Spine Corrector, Ladder Barrel — dès le niveau&nbsp;1. Pas d'options à la carte. Pas de frais cachés.
+          Peak Pilates® est une école reconnue mondialement depuis plus de 20 ans. Tous les appareils — Reformer, Tour, Chaise, Spine Corrector, Ladder Barrel — sont inclus dès le niveau&nbsp;1. Pas d'options à la carte. Pas de frais cachés.
         </p>
         <div class="hero-cta">
           <a href="#inscription" class="btn btn-orange">Réserver ma place <span class="arrow">→</span></a>
           <a href="#vsl" class="btn btn-white">▶&nbsp;&nbsp;Regarder la vidéo</a>
         </div>
         <div class="hero-trust">
-          <div class="hero-trust-item"><strong>20+ ans</strong>École reconnue</div>
-          <div class="hero-trust-item"><strong>Tous appareils</strong>Inclus dès N1</div>
+          <div class="hero-trust-item"><strong>20+ ans</strong>Peak Pilates®</div>
+          <div class="hero-trust-item"><strong>Tous les appareils</strong>Inclus dès N1</div>
           <div class="hero-trust-item"><strong>4 mois</strong>Pour certifier</div>
-          <div class="hero-trust-item"><strong>4 places</strong>Cohorte limitée</div>
+          <div class="hero-trust-item"><strong>10 places</strong>Cohorte limitée</div>
         </div>
       </div>
 
@@ -933,24 +901,24 @@
 <section class="roi-section" data-screen-label="02b ROI">
   <div class="container">
     <div class="sect-head">
-      <h2>Une carrière qui se construit en 4 mois</h2>
+      <h2>Une formation concrète en 4 mois</h2>
       <span class="underline"></span>
     </div>
     <div class="roi-grid">
       <div class="roi-stat">
-        <div class="roi-num">75$<small>/ h</small></div>
-        <div class="roi-label">Tarif moyen d'un cours privé Pilates au Québec</div>
+        <div class="roi-num">80 h<small></small></div>
+        <div class="roi-label">D'instruction en studio, réparties sur 4 modules de septembre à décembre</div>
       </div>
       <div class="roi-stat highlight">
-        <div class="roi-num">52 sem.<small></small></div>
-        <div class="roi-label">Pour rentabiliser ta formation à raison de 1 cours privé / semaine</div>
+        <div class="roi-num">100 %<small></small></div>
+        <div class="roi-label">Pensée pour maximiser tes chances de te faire engager en studio</div>
       </div>
       <div class="roi-stat">
-        <div class="roi-num">100 %<small></small></div>
-        <div class="roi-label">De nos étudiants enseignent dès la fin du Module 3 (mi-novembre)</div>
+        <div class="roi-num">ROI<small></small></div>
+        <div class="roi-label">Un investissement qui peut se rentabiliser avec tes premiers cours privés</div>
       </div>
     </div>
-    <p class="roi-foot">À titre indicatif. Le studio Pilates Nathalie Cadotte recrute régulièrement parmi ses propres diplômé(e)s.</p>
+    <p class="roi-foot">Sans garantie d'embauche ou de revenus : les résultats varient selon le contexte, le studio et l'expérience.</p>
   </div>
 </section>
 
@@ -963,13 +931,13 @@
         <span class="underline"></span>
         <ul class="differs-list">
           <li>Formation de style classique du Pilates.</li>
-          <li>École reconnue mondialement <strong>depuis plus de 20 ans</strong>.</li>
+          <li>Peak Pilates® est une école reconnue mondialement <strong>depuis plus de 20 ans</strong>.</li>
           <li>Fondée par trois femmes — dont Clare Dunphy-Hemani, formée par Romana Kryzanowska.</li>
           <li>La pratique personnelle fait partie intégrante du plan de formation.</li>
           <li>Protocoles d'apprentissage des exercices éprouvés.</li>
           <li><strong>Tous les appareils sont inclus</strong> dans chacun des modules — pas de frais supplémentaires.</li>
-          <li>Un examen par niveau, et non par appareil.</li>
-          <li>Structure simple : 3 niveaux — 3 examens — 10 modules.</li>
+          <li>Pour PPC-1, les 3 évaluations ont lieu au dernier module : théorie, pratique personnelle et enseignement.</li>
+          <li>Structure claire : 3 niveaux — 10 modules au total.</li>
           <li>Accès 24/7 à ton tableau de bord en ligne sur <em>PeakU</em>.</li>
         </ul>
       </div>
@@ -1037,18 +1005,18 @@
         <div class="cert-acc">
           <article class="cert-item expanded">
             <div class="cert-item-head">
-              <b>PPC-1 · à partir de $3,850 + taxes</b>
+              <b>PPC-1 · à partir de 3,650$ + taxes</b>
               <span class="cert-item-icon"></span>
             </div>
             <div class="cert-item-body">
               <p><strong>Prérequis</strong> · Avoir suivi au moins 30 heures de cours de Pilates et avoir une connaissance de base de l'anatomie. La formation est exigeante physiquement.</p>
               <p><strong>Durée</strong> · Un module par mois, de septembre à décembre 2026. Chaque module se déroule sur deux jours : samedi et dimanche, de 8 h à 17 h.</p>
-              <p><strong>Examens</strong> · Trois volets — ton enseignement, ta pratique personnelle, et un test écrit sur la méthode Pilates.</p>
+              <p><strong>Évaluations</strong> · Trois volets, tous au module 4 — théorie en ligne, pratique personnelle et enseignement.</p>
               <ul>
                 <li><strong>Module 1</strong> · Les fondations · 19-20 septembre</li>
                 <li><strong>Module 2</strong> · Introduction aux appareils · 17-18 octobre</li>
                 <li><strong>Module 3</strong> · Niveau intermédiaire · 14-15 novembre</li>
-                <li><strong>Module 4</strong> · Enseignement &amp; examens · 12-13 décembre</li>
+                <li><strong>Module 4</strong> · Enseignement &amp; évaluations · 12-13 décembre</li>
               </ul>
             </div>
           </article>
@@ -1115,8 +1083,8 @@
       <article class="module">
         <div class="module-num">Module 04</div>
         <div class="module-month">Décembre 2026</div>
-        <h4>Enseignement &amp; examens</h4>
-        <p>Derniers exercices au baril à échelle · pratique d'enseignement · révision · examens en trois volets.</p>
+        <h4>Enseignement &amp; évaluations</h4>
+        <p>Derniers exercices au baril à échelle · pratique d'enseignement · révision · 3 évaluations en fin de module.</p>
         <div class="module-meta">12 — 13 déc · 20 h</div>
       </article>
     </div>
@@ -1177,15 +1145,15 @@
         </div>
         <div class="faq-item">
           <div class="faq-q"><span>Quand est-ce que je peux commencer à enseigner ?</span><span class="faq-q-icon">+</span></div>
-          <div class="faq-a"><p>Tu peux commencer à enseigner dès la fin de ton 3<sup>e</sup> module — donc dès la mi-novembre 2026. Une fois ton examen réussi en décembre, tu reçois ta certification Peak Pilates® niveau 1, reconnue partout dans le monde.</p></div>
+          <div class="faq-a"><p>Tu peux commencer à enseigner dès la fin de ton 3<sup>e</sup> module — donc dès la mi-novembre 2026. Une fois tes évaluations réussies en décembre, tu reçois ta certification Peak Pilates® niveau 1, reconnue partout dans le monde.</p></div>
         </div>
         <div class="faq-item">
           <div class="faq-q"><span>Pourquoi Peak Pilates® plutôt qu'une autre certification ?</span><span class="faq-q-icon">+</span></div>
-          <div class="faq-a"><p>Une école reconnue mondialement depuis plus de 20 ans. La transmission directe de la méthode classique de Joseph Pilates via Romana Kryzanowska. Tous les appareils dans le curriculum dès le niveau 1 — sans frais supplémentaires.</p></div>
+          <div class="faq-a"><p>Peak Pilates® est une école reconnue mondialement depuis plus de 20 ans. La transmission directe de la méthode classique de Joseph Pilates via Romana Kryzanowska. Tous les appareils dans le curriculum dès le niveau 1 — sans frais supplémentaires.</p></div>
         </div>
         <div class="faq-item">
           <div class="faq-q"><span>Quel matériel didactique aurai-je besoin ?</span><span class="faq-q-icon">+</span></div>
-          <div class="faq-a"><p>Tout est inclus dans tes frais d'inscription : manuel électronique, librairie de vidéos d'exercices, présentations Power Point, support vidéo, l'examen et le temps de pratique en studio.</p></div>
+          <div class="faq-a"><p>Tout est inclus dans tes frais d'inscription : manuel électronique, librairie de vidéos d'exercices, présentations Power Point, support vidéo, les évaluations et le temps de pratique en studio.</p></div>
         </div>
         <div class="faq-item">
           <div class="faq-q"><span>Puis-je annuler ou reporter ma formation ?</span><span class="faq-q-icon">+</span></div>
@@ -1215,9 +1183,9 @@
         <div class="compare-cell others"><span class="x">✕</span> Souvent à la carte, par appareil</div>
       </div>
       <div class="compare-row">
-        <div class="compare-cell label">Examens</div>
-        <div class="compare-cell peak"><span class="check">✓</span> 1 par niveau (3 au total)</div>
-        <div class="compare-cell others"><span class="x">✕</span> Souvent 1 par appareil</div>
+        <div class="compare-cell label">Évaluations PPC-1</div>
+        <div class="compare-cell peak"><span class="check">✓</span> 3 évaluations au dernier module</div>
+        <div class="compare-cell others"><span class="x">✕</span> Variable selon l'école</div>
       </div>
       <div class="compare-row">
         <div class="compare-cell label">Lignée pédagogique</div>
@@ -1256,9 +1224,9 @@
           <div class="invest-eyebrow">PPC-1 · niveau 1</div>
           <h3>Certification classique<br>complète, niveau 1</h3>
           <span class="underline"></span>
-          <div class="invest-price">$3,850<small>+ taxes</small></div>
+          <div class="invest-price">3,650$<small>+ taxes</small></div>
           <div class="invest-tax">Plans de paiement disponibles · Annulation sans frais jusqu'à 30 jours avant.</div>
-          <p class="lede">Le prix d'une formation complète, sur tous les appareils, par une école reconnue mondialement. À comparer aux autres formations sur le marché — c'est une aubaine.</p>
+          <p class="lede">Le prix d'une formation complète, sur tous les appareils, avec une école Peak Pilates® reconnue mondialement.</p>
           <a href="https://www.wellnessliving.com/fr-default/rs/event/pilates_nathalie_cadotte?k_class=898238" class="btn btn-orange" target="_blank" rel="noopener">M'inscrire maintenant <span class="arrow">→</span></a>
         </div>
         <div>
@@ -1266,14 +1234,14 @@
           <ul class="invest-incl">
             <li><div><strong>Plateforme PeakU 24/7</strong><span class="detail">Tout le matériel didactique et les vidéos de tes formations</span></div></li>
             <li><div><strong>Tableau de bord personnel</strong><span class="detail">Suivi de ton évolution, CECs, certificats à télécharger</span></div></li>
-            <li><div><strong>L'examen PPC-1 (3 volets)</strong><span class="detail">Enseignement, pratique personnelle et théorie</span></div></li>
+            <li><div><strong>Les 3 évaluations PPC-1</strong><span class="detail">Théorie, pratique personnelle et enseignement, au dernier module</span></div></li>
             <li><div><strong>Accès au Maître-Instructeur</strong><span class="detail">Et un groupe Facebook privé avec ta cohorte</span></div></li>
             <li><div><strong>Accès au studio à Laval</strong><span class="detail">Pour ta pratique, ton enseignement et ton observation</span></div></li>
           </ul>
         </div>
       </div>
       <div class="badges-row">
-        <div class="badge"><div class="badge-icon">★</div><b>20+ ans</b><span>École reconnue mondialement</span></div>
+        <div class="badge"><div class="badge-icon">★</div><b>20+ ans</b><span>Peak Pilates® reconnue mondialement</span></div>
         <div class="badge"><div class="badge-icon">✓</div><b>Annulation libre</b><span>Sans frais jusqu'à 30 jours avant le début</span></div>
         <div class="badge"><div class="badge-icon">$</div><b>Plans de paiement</b><span>Sur demande — on s'adapte à ta réalité</span></div>
         <div class="badge"><div class="badge-icon">⌂</div><b>Studio à Laval</b><span>Tous les appareils sur place — accès inclus</span></div>
@@ -1299,20 +1267,7 @@
     <div class="footer-grid">
       <div>
         <div class="logo" style="margin-bottom:16px">
-          <svg class="logo-svg" viewBox="0 0 64 42">
-            <circle cx="6"  cy="14" r="2.2" fill="#9DBE3D"/>
-            <circle cx="13" cy="9"  r="1.7" fill="#6B9E47"/>
-            <circle cx="20" cy="7"  r="2"   fill="#4F7A30"/>
-            <circle cx="28" cy="11" r="1.5" fill="#9DBE3D"/>
-            <circle cx="34" cy="15" r="2.2" fill="#F2B044"/>
-            <circle cx="42" cy="20" r="1.7" fill="#F5A06B"/>
-            <circle cx="50" cy="22" r="1.5" fill="#6B9E47"/>
-            <circle cx="58" cy="20" r="1.2" fill="#9DBE3D"/>
-          </svg>
-          <span class="logo-text">
-            <span class="logo-script" style="color:#9DBE3D">Pilates</span>
-            <span class="logo-sub" style="color:var(--orange)">Nathalie Cadotte</span>
-          </span>
+          <img class="logo-img" src="assets/images/pilates-nathalie-cadotte-logo.png" alt="Pilates Nathalie Cadotte">
         </div>
         <p>Le studio de Pilates par excellence à Laval. Dix ans à former, accompagner et transmettre la méthode classique avec rigueur.</p>
       </div>
@@ -1337,7 +1292,7 @@
   <div class="sticky-inner">
     <div class="sticky-text">
       <span style="color:var(--orange);font-size:18px">●</span>
-      <span><b>PPC-1 · cohorte sept 2026</b> — places limitées · $3,850 + taxes</span>
+      <span><b>PPC-1 · cohorte sept 2026</b> — places limitées · 3,650$ + taxes</span>
     </div>
     <a href="#inscription" class="btn btn-orange">M'inscrire <span class="arrow">→</span></a>
   </div>
