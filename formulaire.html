@@ -129,8 +129,8 @@
     position:relative;
     min-height:520px;
     background:
-      linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.45)),
-      radial-gradient(120% 80% at 50% 30%, #5e8843 0%, #3d5e25 100%);
+      linear-gradient(180deg, rgba(25,36,20,.34), rgba(21,28,18,.74)),
+      url('assets/images/hero-equipe-peak-pilates.jpg') center 46% / cover no-repeat;
     color:#fff;
     overflow:hidden;
     padding:100px 0 140px;
@@ -216,13 +216,13 @@
   .vsl-thumb{
     position:absolute;inset:0;
     background:
-      linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%),
-      radial-gradient(120% 80% at 50% 35%, #6B5A3F 0%, #2C2418 100%);
+      linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.66) 100%),
+      url('assets/images/noemie-plante.jpg') center top / cover no-repeat;
   }
   .vsl-thumb::before{
     content:"";position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);
     width:55%;aspect-ratio:1;border-radius:50%;
-    background:radial-gradient(circle at 40% 40%, rgba(245,210,180,.18), transparent 65%);
+    background:radial-gradient(circle at 40% 40%, rgba(245,210,180,.08), transparent 65%);
     filter:blur(8px);
   }
   .vsl-frame{
@@ -380,17 +380,19 @@
   .differs-card .underline{display:block;width:120px;height:2px;background:var(--yellow);margin-bottom:28px}
   .differs-list{list-style:none;padding:0;margin:0}
   .differs-list li{
-    display:flex;gap:14px;padding:11px 0;
+    display:block;position:relative;padding:11px 0 11px 22px;
     font-size:15px;line-height:1.5;
   }
   .differs-list li::before{
-    content:"";flex-shrink:0;width:8px;height:8px;border-radius:50%;
-    background:var(--green);margin-top:9px;
+    content:"";position:absolute;left:0;top:20px;width:8px;height:8px;border-radius:50%;
+    background:var(--green);
   }
   .differs-list strong{color:var(--orange-deep);font-weight:700}
   .differs-photo{
     aspect-ratio:4/5;border-radius:18px;overflow:hidden;
-    background:linear-gradient(160deg, #C8B89A 0%, #8B7456 100%);
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.45)),
+      url('assets/images/studio-pilates-nathalie-cadotte.jpg') center / cover no-repeat;
     position:relative;
     box-shadow:0 30px 70px -20px rgba(75,90,40,.3);
   }
@@ -408,12 +410,24 @@
   .yellow-section{
     padding:80px 0 60px;background:#fff;position:relative;
   }
+  .yellow-layout{
+    display:grid;grid-template-columns:minmax(0, 0.95fr) minmax(280px, .65fr);
+    align-items:center;gap:38px;
+  }
   .yellow-card{
     background:var(--yellow);
     border-radius:36px 280px 36px 36px; /* big curve top right like site */
     padding:64px 64px 56px;
     color:#fff;position:relative;overflow:hidden;
     max-width:780px;
+  }
+  .yellow-photo{
+    aspect-ratio:5/4;border-radius:18px;overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.28)),
+      url('assets/images/equipe-pilates-nathalie-cadotte.jpg') center / cover no-repeat;
+    box-shadow:0 24px 58px -26px rgba(0,0,0,.32);
+    min-height:300px;
   }
   .yellow-card::before{
     content:"";position:absolute;top:0;right:0;width:200px;height:200px;
@@ -428,10 +442,10 @@
   .yellow-card .underline{display:block;width:80px;height:2px;background:rgba(255,255,255,.5);margin-bottom:28px}
   .yellow-card ul{list-style:none;padding:0;margin:0 0 32px}
   .yellow-card li{
-    display:flex;gap:12px;padding:9px 0;font-size:15px;line-height:1.5;color:#fff;
+    display:block;position:relative;padding:9px 0 9px 20px;font-size:15px;line-height:1.5;color:#fff;
   }
   .yellow-card li::before{
-    content:"";flex-shrink:0;width:7px;height:7px;border-radius:50%;background:#fff;margin-top:9px;
+    content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:#fff;
   }
   .yellow-card strong{font-weight:700}
   .yellow-card .btn-white{background:#fff;color:var(--ink)}
@@ -447,7 +461,9 @@
   }
   .instr-photo{
     aspect-ratio:1/1.1;border-radius:8px;overflow:hidden;
-    background:linear-gradient(160deg, #B8956A 0%, #6B5A3F 100%);
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.5)),
+      url('assets/images/noemie-plante.jpg') center top / cover no-repeat;
     position:relative;
     box-shadow:0 30px 70px -25px rgba(0,0,0,.35);
   }
@@ -536,7 +552,9 @@
 
   .cert-side-photo{
     aspect-ratio:3/4;border-radius:8px;overflow:hidden;
-    background:linear-gradient(180deg, #6B5A3F 0%, #2C2418 100%);
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.55)),
+      url('assets/images/studio-formation-pilates.jpg') center / cover no-repeat;
     position:relative;
     box-shadow:0 30px 70px -20px rgba(0,0,0,.35);
   }
@@ -551,9 +569,23 @@
 
   /* ── Modules grid ─────────── */
   .modules-section{padding:96px 0;background:var(--cream)}
+  .modules-photo-strip{
+    max-width:980px;margin:0 auto 42px;
+    aspect-ratio:16/7;border-radius:18px;overflow:hidden;position:relative;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.5), rgba(0,0,0,.08) 55%, rgba(0,0,0,.25)),
+      url('assets/images/pilates-reformer-formation.jpg') center 42% / cover no-repeat;
+    box-shadow:0 24px 58px -30px rgba(0,0,0,.35);
+  }
+  .modules-photo-caption{
+    position:absolute;left:28px;bottom:24px;color:#fff;
+    font-family:var(--italic);font-style:italic;font-size:20px;line-height:1.3;max-width:420px;
+  }
+  .modules-photo-caption::before{content:"";display:block;width:44px;height:1px;background:var(--orange);margin-bottom:14px}
   .modules-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;
   }
+  .modules-photo-strip + .modules-grid{margin-top:0}
   .module{
     background:#fff;border-radius:18px;padding:32px 28px;
     box-shadow:0 4px 14px rgba(0,0,0,.04);
@@ -634,7 +666,9 @@
   }
   .faq-photo{
     aspect-ratio:3/4;border-radius:10px;overflow:hidden;
-    background:linear-gradient(180deg, #C8B89A, #6B5A3F);
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.36)),
+      url('assets/images/chantal-pilates.jpg') center 38% / cover no-repeat;
     position:relative;
   }
   .faq-photo::before{
@@ -853,6 +887,7 @@
   /* ── Responsive ─────────── */
   @media (max-width: 980px){
     .hero-grid,.differs-grid,.instr-grid,.cert-grid,.faq-grid,.invest-grid,.roi-grid,.badges-row{grid-template-columns:1fr;gap:24px}
+    .yellow-layout{grid-template-columns:1fr}
     .compare-row{grid-template-columns:1fr 1fr;font-size:12px}
     .compare-row .compare-cell.label{grid-column:1/-1;background:var(--gray-light);padding:10px 18px}
     .urgency-strip{font-size:11px;padding:8px 12px;gap:12px}
@@ -866,6 +901,7 @@
     .form-row{grid-template-columns:1fr}
     .topnav{display:none}
     .yellow-card{padding:48px 32px;border-radius:30px 100px 30px 30px}
+    .yellow-photo{min-height:260px}
     .invest-card{padding:36px 28px}
     .footer-grid{grid-template-columns:1fr 1fr}
   }
@@ -875,6 +911,8 @@
     .invest-price{font-size:48px}
     .differs-card{padding:32px 24px}
     .equip-track{font-size:14px}
+    .modules-photo-strip{aspect-ratio:4/3}
+    .modules-photo-caption{left:20px;bottom:20px;font-size:17px;max-width:78%}
   }
 
 </style>
@@ -1033,15 +1071,18 @@
 <!-- ─── YELLOW CALLOUT ─────────── -->
 <section class="yellow-section" data-screen-label="03 Qu'obtiendras-tu">
   <div class="container">
-    <div class="yellow-card">
-      <h2>Qu'obtiendras-tu une fois certifiée ?</h2>
-      <span class="underline"></span>
-      <ul>
-        <li>La capacité d'enseigner le Pilates niveaux base et intermédiaire <strong>sur tous les appareils</strong> (Reformer, Cadillac, Chaise, Baril, sol) <strong>dès le jour 1</strong>.</li>
-        <li>Tu deviens un candidat de choix et très versatile dans un studio qui possède tous les appareils.</li>
-        <li>La fierté d'être certifié(e) d'une école dont la réputation n'est plus à faire.</li>
-      </ul>
-      <a href="#inscription" class="btn btn-white">Demander mon inscription <span class="arrow">→</span></a>
+    <div class="yellow-layout">
+      <div class="yellow-card">
+        <h2>Qu'obtiendras-tu une fois certifiée ?</h2>
+        <span class="underline"></span>
+        <ul>
+          <li>La capacité d'enseigner le Pilates niveaux base et intermédiaire <strong>sur tous les appareils</strong> (Reformer, Cadillac, Chaise, Baril, sol) <strong>dès le jour 1</strong>.</li>
+          <li>Tu deviens un candidat de choix et très versatile dans un studio qui possède tous les appareils.</li>
+          <li>La fierté d'être certifié(e) d'une école dont la réputation n'est plus à faire.</li>
+        </ul>
+        <a href="#inscription" class="btn btn-white">Demander mon inscription <span class="arrow">→</span></a>
+      </div>
+      <div class="yellow-photo" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -1133,6 +1174,9 @@
     <div class="sect-head">
       <h2>Le programme PPC-1 — module par module</h2>
       <span class="underline"></span>
+    </div>
+    <div class="modules-photo-strip" aria-hidden="true">
+      <div class="modules-photo-caption">« Une pédagogie concrète, dans le corps, sur les appareils. »</div>
     </div>
     <div class="modules-grid">
       <article class="module">
