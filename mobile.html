@@ -357,8 +357,8 @@ function MobileLanding() {
         <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',textAlign:'center',color:C.ink}}>Ce que nos étudiants disent</h2>
         <span style={{display:'block',width:60,height:2,background:'#fff',margin:'0 auto 28px'}}/>
         {[
-          ['CB','Camille Bouchard',"Lorsque j'ai commencé cette formation, j'avais très peu d'expérience et j'avoue avoir été un peu intimidée. Je me suis sentie soutenue et encouragée. Cette expérience m'a rappelé qu'il n'est pas nécessaire d'être parfait pour se lancer."],
-          ['MT','Marie-Claude Tremblay',"La formation Peak Pilates a été enrichissante. Elle m'a permis de comprendre mon corps, de gagner en confiance et de réaliser l'importance de la précision du mouvement. J'en sors avec une pratique plus consciente."],
+          ['SI','Sahaar Ismaili',"Lorsque j'ai commencé cette formation Pilates, j'avais très peu d'expérience et j'avoue avoir été un peu intimidée. Je me suis sentie soutenue et encouragée. Il suffit d'être présent et de se donner à 100 %. Je suis incroyablement reconnaissante d'avoir fait le premier pas."],
+          ['RR','Roula Rassi',"La formation Peak Pilates a été une expérience enrichissante. Je me suis sentie soutenue et encadrée dans un environnement bienveillant et professionnel. J'en sors avec une pratique plus consciente, confiante et motivée."],
         ].map(([i,n,t],k)=>(
           <div key={k} style={{
             background:'#fff',borderRadius:14,padding:'48px 22px 24px',position:'relative',marginBottom:k===0?44:0,
@@ -434,7 +434,14 @@ function MobileLanding() {
 
       {/* Footer */}
       <footer style={{background:'#2C3A2A',color:'rgba(255,255,255,.7)',padding:'36px 22px 80px',fontSize:12.5}}>
-        <Logo />
+        <div style={{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap',marginBottom:14}}>
+          <Logo />
+          <img
+            src="assets/images/peak-pilates-logo.png"
+            alt="Peak Pilates"
+            style={{height:56,width:'auto',maxWidth:200,background:'#fff',borderRadius:8,padding:'7px 10px',display:'block'}}
+          />
+        </div>
         <p style={{marginTop:14,marginBottom:18,lineHeight:1.6}}>Fort de 10 ans d'expérience, le studio Pilates Nathalie Cadotte s'appuie sur une équipe hautement qualifiée pour guider ses clients.</p>
         <h5 style={{fontFamily:fonts.display,fontWeight:700,fontSize:10,letterSpacing:'0.16em',textTransform:'uppercase',color:'#fff',margin:'18px 0 8px'}}>Coordonnées</h5>
         <p style={{margin:0,lineHeight:1.7}}>3852 Boul. Sainte-Rose · Laval (Qc)<br/>(450) 937-8887<br/>info@pilatesnathaliecadotte.com</p>
