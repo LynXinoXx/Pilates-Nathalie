@@ -325,10 +325,32 @@ function MobileLanding() {
               </div>
               <h4 style={{fontFamily:fonts.display,fontWeight:700,fontSize:15,textTransform:'uppercase',letterSpacing:'0.01em',margin:'4px 0 10px'}}>{t}</h4>
               <p style={{fontSize:13,color:C.inkSoft,lineHeight:1.55,margin:'0 0 14px'}}>{d}</p>
-              <div style={{paddingTop:10,borderTop:`1px dashed ${C.line}`,fontSize:10,color:C.inkSoft,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:700}}>{date} · 20 h</div>
+              <div style={{paddingTop:10,borderTop:`1px dashed ${C.line}`,fontSize:10,color:C.inkSoft,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:700}}>{date} · 16 h</div>
             </article>
           ))}
         </div>
+      </section>
+
+      {/* Certification path */}
+      <section style={{padding:'44px 22px',background:C.green,color:'#fff'}}>
+        <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',textAlign:'center'}}>Le parcours PPC-1 à PPC-3</h2>
+        <span style={{display:'block',width:60,height:2,background:C.yellow,margin:'0 auto 22px'}}/>
+        <p style={{fontSize:13.5,lineHeight:1.65,color:'rgba(255,255,255,.9)',margin:'0 0 12px'}}>Former des instructeurs de Pilates, c'est bien plus que transmettre un répertoire : c'est guider des humains vers un mouvement juste, sécuritaire et profondément transformateur.</p>
+        <p style={{fontSize:13.5,lineHeight:1.65,color:'rgba(255,255,255,.9)',margin:'0 0 22px'}}>La formation Peak Pilates® - PPC-1, PPC-2 et PPC-3 - offre un parcours complet et cohérent qui mène chaque futur instructeur de la découverte à la maîtrise.</p>
+        <div style={{display:'flex',flexDirection:'column',gap:12}}>
+          {[
+            ['PPC-1','Les fondations essentielles',"Principes du Pilates classique, répertoire de base, alignement, respiration et premières compétences d'enseignement."],
+            ['PPC-2','La progression intermédiaire',"Variations intermédiaires, travail plus riche sur les appareils, transitions fluides et analyse plus fine du mouvement."],
+            ['PPC-3',"L'intégration avancée","Répertoire avancé, logique de progression, adaptations intelligentes et excellence dans l'art d'enseigner."],
+          ].map(([level,title,text])=>(
+            <article key={level} style={{background:'#fff',color:C.ink,borderRadius:14,padding:'20px 20px',border:'1px solid rgba(255,255,255,.2)'}}>
+              <div style={{fontFamily:fonts.display,fontWeight:700,fontSize:11,letterSpacing:'0.14em',textTransform:'uppercase',color:C.orangeDeep,marginBottom:6}}>{level}</div>
+              <h3 style={{fontFamily:fonts.display,fontWeight:700,fontSize:15,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',color:C.greenDeep}}>{title}</h3>
+              <p style={{fontSize:12.5,lineHeight:1.55,color:C.inkSoft,margin:0}}>{text}</p>
+            </article>
+          ))}
+        </div>
+        <p style={{fontSize:13.5,lineHeight:1.65,color:'rgba(255,255,255,.9)',margin:'20px 0 0'}}>Ensemble, les niveaux PPC-1, PPC-2 et PPC-3 forment une formation professionnelle complète, reconnue et structurée.</p>
       </section>
 
       {/* Instructor */}
