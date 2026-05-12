@@ -42,8 +42,11 @@
   .container{max-width:var(--mw);margin:0 auto;padding:0 28px}
 
   /* ── Logo ─────────────────────── */
+  .header-logos{display:flex;align-items:center;gap:14px;flex-shrink:0}
   .logo{display:inline-flex;align-items:center;line-height:1}
   .logo-img{height:68px;width:auto;display:block;flex-shrink:0}
+  .header-peak-link{display:inline-flex;align-items:center;line-height:0}
+  .header-peak-logo{height:52px;width:auto;max-width:180px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;display:block}
 footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
 .footer-brand-logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
 .footer-brand-logos .logo{margin-bottom:0}
@@ -795,6 +798,10 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     .differs-card{padding:32px 24px}
     .equip-track{font-size:14px}
     .logo-img{height:52px}
+    .topbar-inner{gap:10px;padding:12px 18px}
+    .header-logos{gap:8px}
+    .header-peak-logo{height:34px;max-width:98px;padding:4px 6px}
+    .btn-sm{padding:9px 12px;font-size:10px}
     .modules-photo-strip{aspect-ratio:4/3}
     .modules-photo-caption{left:20px;right:20px;bottom:20px;font-size:24px;max-width:90%}
   }
@@ -818,9 +825,14 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
 <!-- ─── TOP BAR ─────────────── -->
 <header class="topbar" data-screen-label="Topbar">
   <div class="topbar-inner">
-    <a href="#" class="logo">
-      <img class="logo-img" src="assets/images/pilates-nathalie-cadotte-logo.png" alt="Pilates Nathalie Cadotte">
-    </a>
+    <div class="header-logos">
+      <a href="#" class="logo">
+        <img class="logo-img" src="assets/images/pilates-nathalie-cadotte-logo.png" alt="Pilates Nathalie Cadotte">
+      </a>
+      <a class="header-peak-link" href="https://www.peakpilates.com/pages/education" target="_blank" rel="noopener" aria-label="Peak Pilates Education">
+        <img class="header-peak-logo" src="assets/images/peak-pilates-logo.png" alt="Peak Pilates">
+      </a>
+    </div>
 
     <nav class="topnav">
       <a href="https://www.pilatesnathaliecadotte.com/">Accueil</a>
@@ -1041,9 +1053,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
       <h2>Le programme PPC-1 — quatre modules</h2>
       <span class="underline"></span>
     </div>
-    <div class="modules-photo-strip" aria-hidden="true">
-      <div class="modules-photo-caption">« Le style de pédagogie se ressent dans le corps à travers tous les appareils. »</div>
-    </div>
+    <div class="modules-photo-strip" aria-hidden="true"></div>
     <div class="modules-grid">
       <article class="module">
         <div class="module-num">Module 01</div>

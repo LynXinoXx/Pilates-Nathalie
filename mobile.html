@@ -144,12 +144,21 @@ function MobileLanding() {
         position:'sticky',top:0,zIndex:5,
         background:'rgba(255,255,255,.96)',backdropFilter:'blur(10px)',
         borderBottom:`1px solid ${C.line}`,
-        padding:'10px 16px',display:'flex',alignItems:'center',justifyContent:'space-between',
+        padding:'10px 12px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:10,
       }}>
-        <Logo small />
+        <div style={{display:'flex',alignItems:'center',gap:8,minWidth:0}}>
+          <Logo small />
+          <a href="https://www.peakpilates.com/pages/education" target="_blank" rel="noopener" aria-label="Peak Pilates Education" style={{display:'inline-block',lineHeight:0,flexShrink:1}}>
+            <img
+              src="assets/images/peak-pilates-logo.png"
+              alt="Peak Pilates"
+              style={{height:34,width:'auto',maxWidth:98,background:'#fff',border:`1px solid ${C.line}`,borderRadius:8,padding:'4px 6px',display:'block'}}
+            />
+          </a>
+        </div>
         <button style={{
           background:C.orange,color:'#fff',border:'none',
-          padding:'9px 14px',borderRadius:999,
+          padding:'9px 12px',borderRadius:999,
           fontFamily:fonts.sans,fontWeight:700,fontSize:10,letterSpacing:'0.12em',textTransform:'uppercase',
         }}>M'inscrire</button>
       </header>
