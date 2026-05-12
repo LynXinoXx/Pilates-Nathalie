@@ -502,38 +502,10 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   .cert-item{
     background:#fff;color:var(--ink);
     border-radius:999px;
-    padding:18px 28px;
+    padding:22px 28px;
     box-shadow:0 4px 14px rgba(0,0,0,.08);
-    cursor:pointer;
-    transition:all .25s ease;
   }
-  .cert-item.expanded{
-    border-radius:24px;
-    padding:24px 28px;
-    box-shadow:0 12px 36px rgba(0,0,0,.16);
-  }
-  .cert-item-head{
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
-  }
-  .cert-item-head b{font-weight:700;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;line-height:1.3}
-  .cert-item-icon{
-    width:24px;height:24px;border-radius:50%;border:2px solid var(--green);
-    display:grid;place-items:center;flex-shrink:0;
-    transition:all .25s ease;
-  }
-  .cert-item-icon::before{
-    content:"";width:8px;height:8px;border-radius:50%;background:var(--green);transition:all .25s;
-  }
-  .cert-item.expanded .cert-item-icon{background:var(--green);border-color:var(--green)}
-  .cert-item.expanded .cert-item-icon::before{background:#fff}
-  .cert-item-body{
-    max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;
-  }
-  .cert-item.expanded .cert-item-body{padding-top:18px}
-  .cert-item-body p,.cert-item-body ul{font-size:14px;line-height:1.6;color:var(--ink-soft)}
-  .cert-item-body ul{padding-left:20px;margin:8px 0}
-  .cert-item-body li{margin-bottom:4px}
-  .cert-item-body strong{color:var(--orange-deep)}
+  .cert-item b{font-weight:700;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;line-height:1.35;display:block}
 
   .cert-side-photo{
     aspect-ratio:3/4;border-radius:8px;overflow:hidden;
@@ -1120,40 +1092,14 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
 
       <div class="cert-grid">
         <div class="cert-acc">
-          <article class="cert-item expanded">
-            <div class="cert-item-head">
-              <b>PPC-1 · lève-tôt 3,650$ + taxes jusqu'au 31 juillet · 3,850$ ensuite</b>
-              <span class="cert-item-icon"></span>
-            </div>
-            <div class="cert-item-body">
-              <p><strong>Prérequis</strong> · Avoir suivi au moins 30 heures de cours de Pilates et avoir une connaissance de base de l'anatomie. La formation est exigeante physiquement.</p>
-              <p><strong>Durée</strong> · Un module par mois, de septembre à décembre 2026. Chaque module se déroule sur deux jours : samedi et dimanche, de 8 h à 17 h.</p>
-              <p><strong>Évaluations</strong> · Trois volets, tous au module 4 — théorie en ligne, pratique personnelle et enseignement.</p>
-              <ul>
-                <li><strong>Module 1</strong> · Les fondations · 19-20 septembre</li>
-                <li><strong>Module 2</strong> · Introduction aux appareils · 17-18 octobre</li>
-                <li><strong>Module 3</strong> · Niveau intermédiaire · 14-15 novembre</li>
-                <li><strong>Module 4</strong> · Enseignement &amp; évaluations · 12-13 décembre</li>
-              </ul>
-            </div>
+          <article class="cert-item">
+            <b>PPC-1 · lève-tôt 3,650$ + taxes jusqu'au 31 juillet · 3,850$ ensuite</b>
           </article>
           <article class="cert-item">
-            <div class="cert-item-head">
-              <b>PPC-2 · niveau intermédiaire · à déterminer</b>
-              <span class="cert-item-icon"></span>
-            </div>
-            <div class="cert-item-body">
-              <p>Réussite des exigences du niveau I, 100 heures de pratique documentées. Tapis, Reformer et Cadillac niveau intermédiaire ; Chaise et Barils niveau intermédiaire ; évaluation complète du niveau II.</p>
-            </div>
+            <b>PPC-2 · niveau intermédiaire · à déterminer</b>
           </article>
           <article class="cert-item">
-            <div class="cert-item-head">
-              <b>PPC-3 · niveau avancé · à déterminer</b>
-              <span class="cert-item-icon"></span>
-            </div>
-            <div class="cert-item-body">
-              <p>Réussite des exigences des niveaux I et II. Mat, Reformer et Cadillac avancés ; Chaise, Barils et équipements auxiliaires ; évaluation finale complète.</p>
-            </div>
+            <b>PPC-3 · niveau avancé · à déterminer</b>
           </article>
         </div>
 
@@ -1489,10 +1435,6 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => item.classList.toggle('open'));
-  });
-  // Cert accordion
-  document.querySelectorAll('.cert-item').forEach(item => {
-    item.addEventListener('click', () => item.classList.toggle('expanded'));
   });
   // Sticky bar
   const sticky = document.getElementById('stickyBar');
