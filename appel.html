@@ -600,11 +600,13 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     padding-top:20px;border-top:1px solid var(--line);
   }
   .testim-avatar{
-    width:48px;height:48px;border-radius:50%;
-    background:linear-gradient(135deg, var(--orange), var(--orange-deep));
-    color:#fff;display:grid;place-items:center;
-    font-family:var(--display);font-size:16px;font-weight:700;
+    width:64px;height:64px;border-radius:50%;
+    object-fit:cover;object-position:center;display:block;flex-shrink:0;
+    border:2px solid rgba(231,138,79,.22);background:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
   }
+  .testim-avatar.sahaar{object-position:50% 38%}
+  .testim-avatar.roula{object-position:44% 42%}
   .testimonial-by b{font-weight:700;font-size:15px;display:block;margin-bottom:2px}
   .testimonial-by span{font-size:11px;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;font-weight:600}
 
@@ -1168,7 +1170,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
         <div class="testim-mark">"</div>
         <blockquote>Lorsque j'ai commencé cette formation Pilates, j'avais très peu d'expérience et j'avoue avoir été un peu intimidée. Durant les prochains mois, je me suis sentie soutenue et encouragée. Les instructeurs ont été un enjeu primordial avec leur expertise, conseils clairs et un environnement encourageant. Cette expérience m'a rappelé qu'il n'est pas nécessaire d'être parfait ou expérimenté pour se lancer. Il suffit d'être présent et de se donner à 100 %! Je suis incroyablement reconnaissante d'avoir fait le premier pas.</blockquote>
         <div class="testimonial-by">
-          <div class="testim-avatar">SI</div>
+          <img class="testim-avatar sahaar" src="assets/images/sahaar-ismaili.jpg" alt="Sahaar Ismaili">
           <div>
             <b>Sahaar Ismaili</b>
             <span>Cohorte PPC-1</span>
@@ -1179,7 +1181,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
         <div class="testim-mark">"</div>
         <blockquote>La formation Peak Pilates a été une expérience enrichissante pour moi. Elle m'a permis de comprendre mon corps, de repousser mes limites, de gagner en confiance, et de réaliser l'importance de la précision du mouvement. Je me suis sentie soutenue et encadrée dans un environnement bienveillant et professionnel au studio. J'en sors avec une pratique plus consciente, confiante et motivée pour continuer dans mon cheminement afin de transmettre le Pilates avec précision et contrôle.</blockquote>
         <div class="testimonial-by">
-          <div class="testim-avatar">RR</div>
+          <img class="testim-avatar roula" src="assets/images/roula-rassi.jpg" alt="Roula Rassi">
           <div>
             <b>Roula Rassi</b>
             <span>Cohorte PPC-1</span>

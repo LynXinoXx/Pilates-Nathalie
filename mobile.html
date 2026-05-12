@@ -379,9 +379,9 @@ function MobileLanding() {
         <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:20,textTransform:'uppercase',lineHeight:1.2,margin:'0 0 8px',textAlign:'center',color:C.ink}}>Ce que nos étudiants disent</h2>
         <span style={{display:'block',width:60,height:2,background:'#fff',margin:'0 auto 28px'}}/>
         {[
-          ['SI','Sahaar Ismaili',"Lorsque j'ai commencé cette formation Pilates, j'avais très peu d'expérience et j'avoue avoir été un peu intimidée. Je me suis sentie soutenue et encouragée. Il suffit d'être présent et de se donner à 100 %. Je suis incroyablement reconnaissante d'avoir fait le premier pas."],
-          ['RR','Roula Rassi',"La formation Peak Pilates a été une expérience enrichissante. Je me suis sentie soutenue et encadrée dans un environnement bienveillant et professionnel. J'en sors avec une pratique plus consciente, confiante et motivée."],
-        ].map(([i,n,t],k)=>(
+          ['assets/images/sahaar-ismaili.jpg','50% 38%','Sahaar Ismaili',"Lorsque j'ai commencé cette formation Pilates, j'avais très peu d'expérience et j'avoue avoir été un peu intimidée. Je me suis sentie soutenue et encouragée. Il suffit d'être présent et de se donner à 100 %. Je suis incroyablement reconnaissante d'avoir fait le premier pas."],
+          ['assets/images/roula-rassi.jpg','44% 42%','Roula Rassi',"La formation Peak Pilates a été une expérience enrichissante. Je me suis sentie soutenue et encadrée dans un environnement bienveillant et professionnel. J'en sors avec une pratique plus consciente, confiante et motivée."],
+        ].map(([img,pos,n,t],k)=>(
           <div key={k} style={{
             background:'#fff',borderRadius:14,padding:'48px 22px 24px',position:'relative',marginBottom:k===0?44:0,
             boxShadow:'0 6px 20px rgba(0,0,0,.06)',
@@ -389,7 +389,7 @@ function MobileLanding() {
             <div style={{position:'absolute',top:-22,left:'50%',transform:'translateX(-50%)',width:46,height:46,borderRadius:'50%',background:'#fff',display:'grid',placeItems:'center',boxShadow:'0 4px 12px rgba(0,0,0,.1)',fontFamily:fonts.italic,fontStyle:'italic',fontSize:32,color:C.orange,lineHeight:1,paddingTop:4}}>"</div>
             <blockquote style={{fontFamily:fonts.italic,fontStyle:'italic',fontSize:16,lineHeight:1.65,margin:'0 0 18px',color:C.ink,fontWeight:600}}>{t}</blockquote>
             <div style={{display:'flex',alignItems:'center',gap:12,paddingTop:14,borderTop:`1px solid ${C.line}`}}>
-              <div style={{width:38,height:38,borderRadius:'50%',background:`linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`,color:'#fff',display:'grid',placeItems:'center',fontFamily:fonts.display,fontWeight:700,fontSize:13}}>{i}</div>
+              <img src={img} alt={n} style={{width:46,height:46,borderRadius:'50%',objectFit:'cover',objectPosition:pos,display:'block',flexShrink:0,border:'2px solid rgba(231,138,79,.22)',boxShadow:'0 3px 10px rgba(0,0,0,.08)',background:'#fff'}}/>
               <div>
                 <b style={{fontWeight:700,fontSize:13,display:'block'}}>{n}</b>
                 <span style={{fontSize:9,color:C.inkSoft,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:600}}>Cohorte PPC-1</span>
