@@ -7,6 +7,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salsa&family=Mulish:wght@300;400;500;600;700&family=Sacramento&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '903170500946037');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=903170500946037&ev=PageView&noscript=1"
+  alt=""></noscript>
+<!-- End Meta Pixel Code -->
 <style>
   :root{
     --green:#54973e;
@@ -1464,6 +1481,12 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   }
   window.addEventListener('scroll', checkSticky, {passive:true});
   checkSticky();
+  function trackMeta(eventName, params){
+    if (window.fbq) fbq('track', eventName, params || {});
+  }
+  document.querySelectorAll('a[href="#inscription"]').forEach(link => {
+    link.addEventListener('click', () => trackMeta('Contact', {content_name:'PPC-1 call CTA'}));
+  });
   // VSL placeholder
   const playBtn = document.querySelector('.vsl-play');
   if (playBtn) playBtn.addEventListener('click', () => alert('La vidéo VSL sera intégrée ici (YouTube/Vimeo embed).'));
