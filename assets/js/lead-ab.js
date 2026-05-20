@@ -28,6 +28,29 @@
   const variant = VARIANTS[variantKey];
   let viewedTracked = false;
 
+  function cookieValue(name) {
+    return document.cookie
+      .split('; ')
+      .find((part) => part.startsWith(`${name}=`))
+      ?.split('=')
+      .slice(1)
+      .join('=') || '';
+  }
+
+  function metaEventId(prefix) {
+    if (window.crypto && window.crypto.randomUUID) return `${prefix}_${window.crypto.randomUUID()}`;
+    return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+  }
+
+  function metaFbc() {
+    const existing = cookieValue('_fbc');
+    if (existing) return existing;
+
+    const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+    if (!fbclid) return '';
+    return `fb.1.${Date.now()}.${fbclid}`;
+  }
+
   function track(eventName, data) {
     const payload = Object.assign({
       variant: variantKey,
@@ -39,16 +62,22 @@
     if (window.fbq && eventName === 'Lead Form Initiated') {
       window.fbq('track', 'LeadFormInitiated', {
         content_name: 'PPC-1 formation inquiry',
+        currency: 'CAD',
+        value: 3850,
         variant: variantKey,
         headline: variant.label,
       });
     }
     if (window.fbq && eventName === 'Lead Captured') {
-      window.fbq('track', 'Lead', {
+      const leadPayload = {
         content_name: 'PPC-1 formation inquiry',
+        currency: 'CAD',
+        value: 3850,
         variant: variantKey,
         headline: variant.label,
-      });
+      };
+      if (data && data.meta_event_id) window.fbq('track', 'Lead', leadPayload, { eventID: data.meta_event_id });
+      else window.fbq('track', 'Lead', leadPayload);
     }
 
     if (navigator.sendBeacon) {
@@ -83,6 +112,9 @@
 
   function formPayload(form) {
     const formData = new FormData(form);
+    formData.set('meta_event_id', metaEventId('lead'));
+    formData.set('fbp', cookieValue('_fbp'));
+    formData.set('fbc', metaFbc());
     formData.set('headline_variant', variantKey);
     formData.set('headline_text', variant.label);
     formData.set('page_url', window.location.href);
@@ -170,7 +202,10 @@
           }
         }
 
-        track('Lead Captured', { intent: payload.paiement || 'unknown' });
+        track('Lead Captured', {
+          intent: payload.paiement || 'unknown',
+          meta_event_id: payload.meta_event_id,
+        });
         showSuccess(form);
       });
     });
