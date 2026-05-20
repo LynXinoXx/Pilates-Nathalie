@@ -127,8 +127,22 @@
     return { formData, payload };
   }
 
+  async function fetchWithTimeout(url, options) {
+    if (!window.AbortController) return fetch(url, options);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 12000);
+    try {
+      return await fetch(url, Object.assign({}, options, { signal: controller.signal }));
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
   async function submitToVercel(payload) {
-    const response = await fetch('/api/lead', {
+    const endpoint = window.location.hostname.endsWith('vercel.app')
+      ? '/api/lead'
+      : 'https://pilates-nathalie.vercel.app/api/lead';
+    const response = await fetchWithTimeout(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -139,7 +153,7 @@
 
   async function submitToFormSubmit(formData, form) {
     const endpoint = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
-    const response = await fetch(endpoint, {
+    const response = await fetchWithTimeout(endpoint, {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body: formData,
