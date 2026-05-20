@@ -2,12 +2,12 @@
   const LEAD_EMAIL = 'info@pilatesnathaliecadotte.com';
   const VARIANTS = {
     A: {
-      label: 'Apprendre a voir',
-      html: 'Apprendre à voir.<br>Apprendre à guider.<span class="accent">Une formation classique complète.</span>',
+      label: 'Apprendre a voir et guider',
+      html: 'Apprendre à voir.<br>Apprendre à guider.<span class="accent"><span class="mobile-accent-line">Une formation reconnue</span> <span class="mobile-accent-line">sur tous les</span> <span class="mobile-accent-line">appareils.</span></span>',
     },
     B: {
-      label: 'Devenir instructrice',
-      html: 'Deviens instructrice Pilates.<br><span class="accent">Une formation reconnue sur tous les appareils.</span>',
+      label: 'Deviens instructrice de Pilates',
+      html: '<span class="mobile-headline-line">Deviens instructrice</span> <span class="mobile-headline-line">de Pilates.</span><span class="accent"><span class="mobile-accent-line">Une formation reconnue</span> <span class="mobile-accent-line">sur tous les</span> <span class="mobile-accent-line">appareils.</span></span>',
     },
   };
 

@@ -151,13 +151,14 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     background:var(--green-dark);
     color:#fff;
     overflow:hidden;
-    padding:100px 0 140px;
+    padding:96px 0 130px;
     display:flex;align-items:center;
   }
   .hero::before,.hero::after{content:none}
+  .hero .container{max-width:1420px}
   .hero-grid{
     position:relative;z-index:2;
-    display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;
+    display:grid;grid-template-columns:minmax(360px, .86fr) minmax(480px, 1.3fr);gap:76px;align-items:center;
     width:100%;
   }
   .hero-eyebrow{
@@ -294,6 +295,8 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   .hero-video{
     position:relative;
     width:100%;
+    max-width:760px;
+    justify-self:center;
     border-radius:18px;
     overflow:hidden;
     background:#1A2420;
@@ -952,6 +955,14 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
       margin-bottom:0;
     }
     h1.hero-title .accent{font-size:.86em;margin-top:8px}
+    .mobile-headline-line{
+      display:block;
+      white-space:nowrap;
+      font-size:.88em;
+    }
+    h1.hero-title .accent .mobile-accent-line{
+      display:block;
+    }
     .hero-video{
       order:2;
       width:100%;
@@ -1050,7 +1061,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
         <h1 class="hero-title" data-ab-headline>
           Apprendre à voir.<br>
           Apprendre à guider.
-          <span class="accent">Une formation classique complète.</span>
+          <span class="accent"><span class="mobile-accent-line">Une formation reconnue</span> <span class="mobile-accent-line">sur tous les</span> <span class="mobile-accent-line">appareils.</span></span>
         </h1>
         <p class="hero-lede">
           Peak Pilates® est une école reconnue mondialement depuis plus de 20 ans. Tous les appareils — Reformer, Tour, Chaise, Spine Corrector, Ladder Barrel — sont inclus dès le niveau&nbsp;1. Pas d'options à la carte. Pas de frais cachés.
