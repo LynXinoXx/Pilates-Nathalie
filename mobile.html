@@ -24,6 +24,11 @@
   src="https://www.facebook.com/tr?id=903170500946037&ev=PageView&noscript=1"
   alt=""></noscript>
 <!-- End Meta Pixel Code -->
+<script>
+  window.va = window.va || function(){(window.vaq = window.vaq || []).push(arguments);};
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="assets/js/lead-ab.js"></script>
 <style>
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:#EEE9DF;min-height:100vh;font-family:'Mulish',Helvetica,Arial,Lucida,sans-serif;color:#2D2D2D}
@@ -66,8 +71,8 @@
       Mobile
     </h1>
     <span class="underline"></span>
-    <p>La même landing page, repensée pour le téléphone : VSL plein écran, CTA fixe en bas, FAQ pliées par défaut, bandeau d'urgence compact.</p>
-    <p>Optimisé pour iPhone (402×874). Touch targets minimum 44px. La vidéo VSL est en ratio portrait.</p>
+    <p>La même landing page, repensée pour le téléphone : image hero plein écran, CTA fixe en bas, FAQ pliées par défaut, bandeau d'urgence compact.</p>
+    <p>Optimisé pour iPhone (402×874). Touch targets minimum 44px. Le bloc vidéo est remplacé par une image jusqu'à ce que la vidéo soit prête.</p>
     <a class="pill" href="index.html">Voir la version desktop &rarr;</a>
   </div>
 
@@ -173,7 +178,7 @@ function MobileLanding() {
             />
           </a>
         </div>
-        <button style={{
+        <button onClick={() => window.location.href = 'index.html#inscription'} style={{
           background:C.orange,color:'#fff',border:'none',
           padding:'9px 12px',borderRadius:999,
           fontFamily:fonts.sans,fontWeight:700,fontSize:10,letterSpacing:'0.12em',textTransform:'uppercase',
@@ -198,7 +203,7 @@ function MobileLanding() {
             Peak Pilates® · PPC-1
           </span>
 
-          <h1 style={{
+          <h1 data-ab-headline style={{
             fontFamily:fonts.display,fontWeight:700,fontSize:32,lineHeight:1.05,
             textTransform:'uppercase',color:'#fff',margin:'0 0 12px',letterSpacing:'0.005em',
           }}>
@@ -213,39 +218,21 @@ function MobileLanding() {
             Peak Pilates® est une école reconnue mondialement depuis plus de 20 ans. Tous les appareils sont inclus dès le niveau 1.
           </p>
 
-          {/* VSL portrait */}
+          {/* VSL placeholder paused until the final video is ready. */}
           <div style={{
             position:'relative',aspectRatio:'9/14',borderRadius:14,overflow:'hidden',
-            background:'linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), radial-gradient(120% 80% at 50% 35%, #6B5A3F 0%, #2C2418 100%)',
+            background:"linear-gradient(180deg, rgba(20,32,24,.05) 0%, rgba(20,32,24,.58) 100%), url('assets/images/pilates-reformer-formation.jpg') center / cover no-repeat",
             boxShadow:'0 16px 40px -12px rgba(0,0,0,.5)',marginBottom:18,
           }}>
-            <span style={{
-              position:'absolute',top:14,left:14,
-              padding:'5px 11px',borderRadius:999,
-              background:'rgba(255,255,255,.15)',backdropFilter:'blur(10px)',
-              fontSize:9,fontWeight:700,letterSpacing:'0.16em',textTransform:'uppercase',
-              border:'1px solid rgba(255,255,255,.22)',color:'#fff',
-              display:'inline-flex',alignItems:'center',gap:6,
-            }}>
-              <span style={{width:5,height:5,borderRadius:'50%',background:C.orange}}/>Vidéo · Noémie
-            </span>
-            <button style={{
-              position:'absolute',left:'50%',top:'50%',transform:'translate(-50%,-50%)',
-              width:64,height:64,borderRadius:'50%',background:C.orange,color:'#fff',
-              border:'none',cursor:'pointer',display:'grid',placeItems:'center',
-              boxShadow:'0 10px 30px rgba(245,160,107,.55)',
-            }}>
-              <svg width={22} height={22} viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-            </button>
             <div style={{
               position:'absolute',bottom:14,left:14,right:14,
               fontFamily:fonts.italic,fontStyle:'italic',fontSize:13,lineHeight:1.4,color:'#fff',
             }}>
-              « Enseigner le Pilates, c'est apprendre à voir. »
+              « Une formation concrète, dans le corps, sur les appareils. »
             </div>
           </div>
 
-          <button style={{
+          <button onClick={() => window.location.href = 'index.html#inscription'} style={{
             width:'100%',background:C.orange,color:'#fff',border:'none',
             padding:'16px',borderRadius:999,
             fontFamily:fonts.sans,fontWeight:700,fontSize:12,letterSpacing:'0.14em',textTransform:'uppercase',
@@ -329,7 +316,7 @@ function MobileLanding() {
               </li>
             ))}
           </ul>
-          <button style={{background:'#fff',color:C.ink,border:'none',padding:'12px 22px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.14em',textTransform:'uppercase'}}>M'inscrire →</button>
+          <button onClick={() => window.location.href = 'index.html#inscription'} style={{background:'#fff',color:C.ink,border:'none',padding:'12px 22px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.14em',textTransform:'uppercase'}}>M'inscrire →</button>
         </div>
       </section>
 
@@ -452,7 +439,7 @@ function MobileLanding() {
               </li>
             ))}
           </ul>
-          <button style={{width:'100%',background:C.orange,color:'#fff',border:'none',padding:'15px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11.5,letterSpacing:'0.14em',textTransform:'uppercase'}}>M'inscrire maintenant →</button>
+          <button onClick={() => window.location.href = 'index.html#inscription'} style={{width:'100%',background:C.orange,color:'#fff',border:'none',padding:'15px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11.5,letterSpacing:'0.14em',textTransform:'uppercase'}}>M'inscrire maintenant →</button>
         </div>
       </section>
 
@@ -476,7 +463,7 @@ function MobileLanding() {
           <div style={{fontFamily:fonts.script,fontSize:34,color:C.yellowSoft,lineHeight:1,marginBottom:6}}>la prochaine cohorte</div>
           <h2 style={{fontFamily:fonts.display,fontWeight:700,fontSize:26,textTransform:'uppercase',lineHeight:1.1,margin:'0 0 16px',color:'#fff'}}>Débute le 19 sept 2026.</h2>
           <p style={{fontSize:13.5,color:'rgba(255,255,255,.92)',lineHeight:1.6,margin:'0 0 24px'}}>Une formation complète, étape par étape. Apprendre à voir et à guider.</p>
-          <button style={{background:C.orange,color:'#fff',border:'none',padding:'15px 28px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11.5,letterSpacing:'0.14em',textTransform:'uppercase'}}>Réserver ma place →</button>
+          <button onClick={() => window.location.href = 'index.html#inscription'} style={{background:C.orange,color:'#fff',border:'none',padding:'15px 28px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11.5,letterSpacing:'0.14em',textTransform:'uppercase'}}>Réserver ma place →</button>
         </div>
       </section>
 
@@ -512,7 +499,7 @@ function MobileLanding() {
           <b style={{fontFamily:fonts.display,fontWeight:700,fontSize:12,textTransform:'uppercase',letterSpacing:'0.04em',display:'block'}}>3,650$ + tx lève-tôt</b>
           <span style={{opacity:.7,fontSize:10}}>Jusqu'au 30 juin · 3,850$ ensuite</span>
         </div>
-        <button style={{background:C.orange,color:'#fff',border:'none',padding:'11px 18px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.12em',textTransform:'uppercase',whiteSpace:'nowrap'}}>M'inscrire →</button>
+        <button onClick={() => window.location.href = 'index.html#inscription'} style={{background:C.orange,color:'#fff',border:'none',padding:'11px 18px',borderRadius:999,fontFamily:fonts.sans,fontWeight:700,fontSize:11,letterSpacing:'0.12em',textTransform:'uppercase',whiteSpace:'nowrap'}}>M'inscrire →</button>
       </div>
 
     </div>

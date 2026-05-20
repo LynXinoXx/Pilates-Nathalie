@@ -24,6 +24,11 @@
   src="https://www.facebook.com/tr?id=903170500946037&ev=PageView&noscript=1"
   alt=""></noscript>
 <!-- End Meta Pixel Code -->
+<script>
+  window.va = window.va || function(){(window.vaq = window.vaq || []).push(arguments);};
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="assets/js/lead-ab.js"></script>
 <style>
   :root{
     --green:#54973e;
@@ -747,27 +752,112 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
 
   /* ── Final CTA ─────────── */
   .final-cta{
-    padding:120px 0;text-align:center;
+    padding:0;text-align:left;
     background:var(--green);color:#fff;position:relative;overflow:hidden;
   }
-  .final-cta::before{
-    content:"";position:absolute;top:-30%;right:-10%;width:50%;height:130%;
-    background:var(--green-deep);transform:rotate(-12deg);
+  .form-split{
+    display:grid;grid-template-columns:1fr 1.15fr;min-height:680px;
+    max-width:1280px;margin:0 auto;
   }
-  .final-cta::after{
-    content:"";position:absolute;bottom:-40%;left:-15%;width:60%;height:130%;
-    background:var(--green-deep);transform:rotate(8deg);opacity:.5;
+  .form-side-left{
+    padding:88px 64px;color:#fff;position:relative;z-index:2;
   }
-  .final-cta .container{position:relative;z-index:2}
-  .final-cta-script{
-    font-family:var(--script);font-size:48px;color:var(--yellow-soft);line-height:1;margin-bottom:6px;
+  .form-side-left .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--yellow-soft);margin-bottom:18px;
   }
-  .final-cta h2{
-    color:#fff;text-transform:uppercase;font-size:clamp(28px, 4vw, 48px);
-    line-height:1.1;margin-bottom:24px;
+  .form-side-left .eyebrow::before{
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);
   }
-  .final-cta p{font-size:17px;color:rgba(255,255,255,.92);max-width:600px;margin:0 auto 36px;line-height:1.65}
-  .final-cta .btn{padding:18px 32px;font-size:13px}
+  .form-side-left .script-h{
+    font-family:var(--script);font-size:54px;color:var(--yellow-soft);line-height:1;margin-bottom:8px;
+  }
+  .form-side-left h2{
+    color:#fff;text-transform:uppercase;font-size:clamp(32px, 3.2vw, 48px);
+    line-height:1.05;margin:0 0 28px;font-family:var(--display);font-weight:700;letter-spacing:0.005em;
+  }
+  .form-side-left .lede{font-size:16px;color:rgba(255,255,255,.92);line-height:1.65;margin-bottom:36px;max-width:420px}
+  .form-side-left .what-next{border-top:1px solid rgba(255,255,255,.18);padding-top:28px;margin-top:8px}
+  .form-side-left .what-next h5{
+    font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);margin:0 0 18px;
+  }
+  .form-side-left .step{display:flex;gap:16px;padding:10px 0}
+  .form-side-left .step-num{
+    flex-shrink:0;width:32px;height:32px;border-radius:50%;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    color:#fff;font-family:var(--display);font-weight:700;font-size:13px;
+    display:grid;place-items:center;
+  }
+  .form-side-left .step b{font-size:14px;font-weight:700;display:block;margin-bottom:2px}
+  .form-side-left .step span.t{font-size:13px;color:rgba(255,255,255,.78);line-height:1.5}
+  .form-side-right{background:var(--cream);padding:88px 64px;position:relative;z-index:2}
+  .form-card{
+    background:#fff;border-radius:20px;padding:40px;
+    box-shadow:0 24px 60px -28px rgba(0,0,0,.25);
+    max-width:520px;
+  }
+  .form-card .form-eyebrow{
+    font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--orange-deep);margin-bottom:8px;
+  }
+  .form-card h3{
+    font-family:var(--display);font-weight:700;font-size:24px;
+    text-transform:uppercase;letter-spacing:0.005em;line-height:1.15;
+    margin:0 0 8px;color:var(--ink);
+  }
+  .form-card .underline{display:block;width:48px;height:2px;background:var(--yellow);margin:14px 0 22px}
+  .form-card .form-intro{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 26px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .form-field.split{margin-bottom:0}
+  .form-field label{
+    font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .form-field input,.form-field select,.form-field textarea{
+    border:1px solid var(--line);background:#FAFAF7;
+    padding:12px 14px;border-radius:10px;
+    font-family:inherit;font-size:14px;color:var(--ink);
+    transition:border-color .15s ease,background .15s ease;
+  }
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    outline:none;border-color:var(--green);background:#fff;
+  }
+  .form-field textarea{resize:vertical;min-height:90px;font-family:inherit}
+  .radio-group{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+  .radio-pill{
+    display:flex;align-items:center;gap:10px;
+    border:1px solid var(--line);background:#FAFAF7;
+    padding:11px 14px;border-radius:10px;cursor:pointer;
+    font-size:13px;color:var(--ink);transition:all .15s ease;
+  }
+  .radio-pill:has(input:checked){
+    border-color:var(--green);background:rgba(107,158,71,.06);color:var(--green-deep);font-weight:600;
+  }
+  .radio-pill input{accent-color:var(--green);width:16px;height:16px}
+  .form-card .submit-btn{
+    width:100%;background:var(--orange);color:#fff;border:none;
+    padding:17px;border-radius:999px;
+    font-family:var(--display);font-weight:700;font-size:13px;
+    letter-spacing:0.14em;text-transform:uppercase;
+    cursor:pointer;transition:background .15s ease;
+    margin-top:12px;
+  }
+  .form-card .submit-btn:hover{background:var(--orange-deep)}
+  .form-card .submit-btn:disabled{opacity:.72;cursor:wait}
+  .form-card .form-footnote{
+    font-size:12px;color:var(--ink-soft);line-height:1.5;
+    text-align:center;margin:18px 0 0;
+  }
+  .form-success{text-align:center;padding:32px 16px}
+  .form-success .check-big{
+    width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;
+    display:grid;place-items:center;margin:0 auto 20px;font-size:30px;font-weight:700;
+  }
+  .form-success h4{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 10px;color:var(--ink)}
+  .form-success p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:0}
 
   /* ── Footer ─────────── */
   footer{background:#2C3A2A;color:rgba(255,255,255,.7);padding:64px 0 32px;font-size:14px}
@@ -812,6 +902,9 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     .invest-card{padding:36px 28px}
     .footer-grid{grid-template-columns:1fr 1fr}
     .modules-photo-caption{font-size:30px;max-width:90%}
+    .form-split{grid-template-columns:1fr;min-height:auto}
+    .form-side-left,.form-side-right{padding:48px 28px}
+    .form-card{padding:28px 24px}
   }
   @media (max-width: 540px){
     .hero-trust{
@@ -840,6 +933,8 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     .header-logos{gap:8px}
     .header-peak-logo{height:34px;max-width:98px;padding:4px 6px}
     .btn-sm{padding:9px 12px;font-size:10px}
+    .form-row{grid-template-columns:1fr}
+    .form-field.split{margin-bottom:14px}
     .modules-photo-strip{aspect-ratio:4/3}
     .modules-photo-caption{left:20px;right:20px;bottom:20px;font-size:24px;max-width:90%}
   }
@@ -891,7 +986,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="hero-eyebrow"><span class="dot"></span>Formation Peak Pilates® · PPC-1</span>
-        <h1 class="hero-title">
+        <h1 class="hero-title" data-ab-headline>
           Apprendre à voir.<br>
           Apprendre à guider.
           <span class="accent">Une formation classique complète.</span>
@@ -1267,7 +1362,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
           <div class="invest-regular">Prix régulier : <strong>3,850$ + taxes</strong> ensuite</div>
           <div class="invest-tax">Plans de paiement disponibles · Annulation sans frais jusqu'à 30 jours avant.</div>
           <p class="lede">Le prix d'une formation complète, sur tous les appareils, avec une école Peak Pilates® reconnue mondialement.</p>
-          <a href="https://www.wellnessliving.com/fr-default/rs/event/pilates_nathalie_cadotte?k_class=898238" class="btn btn-orange" target="_blank" rel="noopener">M'inscrire maintenant <span class="arrow">→</span></a>
+          <a href="#inscription" class="btn btn-orange">M'inscrire maintenant <span class="arrow">→</span></a>
         </div>
         <div>
           <div class="invest-eyebrow">Inclus dans ta formation</div>
@@ -1291,13 +1386,64 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   </div>
 </section>
 
-<!-- ─── FINAL CTA ─────────── -->
-<section class="final-cta" data-screen-label="10 CTA final">
-  <div class="container">
-    <div class="final-cta-script">la prochaine cohorte</div>
-    <h2>Débute le 19 septembre 2026.</h2>
-    <p>Une formation complète, qui se construit étape par étape. Apprendre à voir et à guider chaque personne selon ses besoins. C'est ça, enseigner le Pilates.</p>
-    <a href="https://www.wellnessliving.com/fr-default/rs/event/pilates_nathalie_cadotte?k_class=898238" class="btn btn-orange" target="_blank" rel="noopener">Réserver ma place <span class="arrow">→</span></a>
+<!-- ─── FORM CTA ─────────── -->
+<section class="final-cta" id="inscription" data-screen-label="10 Demande inscription">
+  <div class="form-split">
+    <div class="form-side-left">
+      <span class="eyebrow">Cohorte automne 2026</span>
+      <div class="script-h">la prochaine cohorte</div>
+      <h2>Débute le 19 septembre 2026.</h2>
+      <p class="lede">Remplis ce formulaire et l'équipe te recontacte sous 24-48h pour finaliser ton inscription, répondre à tes questions et confirmer le plan de paiement.</p>
+      <div class="what-next">
+        <h5>Et ensuite ?</h5>
+        <div class="step"><div class="step-num">1</div><div><b>On te répond sous 24-48h</b><span class="t">Par courriel ou par téléphone, selon ta préférence.</span></div></div>
+        <div class="step"><div class="step-num">2</div><div><b>Bref appel de confirmation</b><span class="t">15 minutes pour valider que la formation est faite pour toi.</span></div></div>
+        <div class="step"><div class="step-num">3</div><div><b>Paiement &amp; place réservée</b><span class="t">Plan de paiement adapté à ta réalité — bienvenue dans la cohorte.</span></div></div>
+      </div>
+    </div>
+    <div class="form-side-right">
+      <div class="form-card" id="formCard">
+        <div class="form-eyebrow">Formulaire d'inscription</div>
+        <h3>Réserve ta place</h3>
+        <span class="underline"></span>
+        <p class="form-intro">Tous les champs sont requis sauf le message.</p>
+        <form data-lead-form id="inscriptionForm" action="https://formsubmit.co/info@pilatesnathaliecadotte.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle demande PPC-1 - Formation Peak Pilates">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="source" value="index">
+          <input type="hidden" name="headline_variant" data-ab-variant-field>
+          <input type="hidden" name="headline_text" data-ab-headline-field>
+          <div class="form-row">
+            <div class="form-field split"><label>Prénom</label><input type="text" name="prenom" autocomplete="given-name" required></div>
+            <div class="form-field split"><label>Nom</label><input type="text" name="nom" autocomplete="family-name" required></div>
+          </div>
+          <div class="form-field"><label>Courriel</label><input type="email" name="email" autocomplete="email" required></div>
+          <div class="form-field"><label>Téléphone</label><input type="tel" name="tel" autocomplete="tel" required></div>
+          <div class="form-field">
+            <label>Heures de Pilates pratiquées</label>
+            <select name="heures" required>
+              <option value="">Sélectionner…</option>
+              <option>0-30 heures</option>
+              <option>30-60 heures</option>
+              <option>60-100 heures</option>
+              <option>100+ heures</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Mode de paiement préféré</label>
+            <div class="radio-group">
+              <label class="radio-pill"><input type="radio" name="paiement" value="complet" required>Paiement complet (3,650$ + tx jusqu'au 30 juin · 3,850$ + tx ensuite)</label>
+              <label class="radio-pill"><input type="radio" name="paiement" value="plan">Plan de paiement (à discuter)</label>
+              <label class="radio-pill"><input type="radio" name="paiement" value="info">Je veux d'abord plus d'informations</label>
+            </div>
+          </div>
+          <div class="form-field"><label>Message (optionnel)</label><textarea name="message" placeholder="Une question, une restriction physique, un horaire particulier…"></textarea></div>
+          <button type="submit" class="submit-btn">Envoyer ma demande →</button>
+          <p class="form-footnote">En soumettant, tu consens à ce que Pilates Nathalie Cadotte utilise tes informations pour répondre à ta demande.</p>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1365,9 +1511,6 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   }
   document.querySelectorAll('a[href="#inscription"]').forEach(link => {
     link.addEventListener('click', () => trackMeta('Contact', {content_name:'PPC-1 lead CTA'}));
-  });
-  document.querySelectorAll('a[href*="wellnessliving.com"]').forEach(link => {
-    link.addEventListener('click', () => trackMeta('InitiateCheckout', {content_name:'PPC-1 formation', value:3650, currency:'CAD'}));
   });
   // VSL placeholder disabled while the hero uses a static image.
   // const playBtn = document.querySelector('.vsl-play');
