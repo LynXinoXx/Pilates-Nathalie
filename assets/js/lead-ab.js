@@ -36,8 +36,19 @@
     }, data || {});
 
     if (window.va) window.va('event', eventName, payload);
+    if (window.fbq && eventName === 'Lead Form Initiated') {
+      window.fbq('track', 'LeadFormInitiated', {
+        content_name: 'PPC-1 formation inquiry',
+        variant: variantKey,
+        headline: variant.label,
+      });
+    }
     if (window.fbq && eventName === 'Lead Captured') {
-      window.fbq('track', 'Lead', { content_name: 'PPC-1 formation inquiry' });
+      window.fbq('track', 'Lead', {
+        content_name: 'PPC-1 formation inquiry',
+        variant: variantKey,
+        headline: variant.label,
+      });
     }
 
     if (navigator.sendBeacon) {
@@ -125,6 +136,11 @@
     document.querySelectorAll('[data-lead-form]').forEach((form) => {
       if (form.dataset.leadBound) return;
       form.dataset.leadBound = 'true';
+      form.addEventListener('focusin', () => {
+        if (form.dataset.metaLeadInitiated) return;
+        form.dataset.metaLeadInitiated = 'true';
+        track('Lead Form Initiated');
+      });
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         applyHeadline();
