@@ -29,6 +29,16 @@
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="assets/js/lead-ab.js"></script>
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/d7bnd86ebn.js" async type="module"></script>
+<style>
+  wistia-player[media-id='d7bnd86ebn']:not(:defined) {
+    background:center / contain no-repeat url('https://fast.wistia.com/embed/medias/d7bnd86ebn/swatch');
+    display:block;
+    filter:blur(5px);
+    padding-top:56.25%;
+  }
+</style>
 <style>
   :root{
     --green:#54973e;
@@ -281,6 +291,18 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     line-height:1.35;
     text-shadow:0 2px 18px rgba(0,0,0,.45);
   }
+  .hero-video{
+    position:relative;
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    background:#1A2420;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.5);
+  }
+  .hero-video wistia-player{
+    display:block;
+    width:100%;
+  }
 
   /* ── Section title style (matches site) ─────────── */
   .sect-head{text-align:center;margin-bottom:56px}
@@ -310,7 +332,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
   .equip-track{
-    display:flex;gap:48px;animation:scroll 35s linear infinite;
+    display:flex;gap:48px;animation:scroll 18s linear infinite;
     white-space:nowrap;
     font-family:var(--display);font-weight:600;font-size:18px;color:var(--green-deep);
     text-transform:uppercase;letter-spacing:0.08em;
@@ -886,14 +908,14 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   @media (max-width: 980px){
     .hero-grid,.differs-grid,.instr-grid,.cert-grid,.faq-grid,.invest-grid,.roi-grid,.badges-row{grid-template-columns:1fr;gap:24px}
     .hero-copy{display:contents}
-    .hero-grid .vsl,.hero-grid .hero-photo{order:1}
+    .hero-grid .vsl,.hero-grid .hero-photo,.hero-grid .hero-video{order:1}
     .hero-trust{order:2}
     .yellow-layout{grid-template-columns:1fr}
     .compare-row{grid-template-columns:1fr 1fr;font-size:12px}
     .compare-row .compare-cell.label{grid-column:1/-1;background:var(--gray-light);padding:10px 18px}
     .compare-head .compare-cell.label{color:var(--ink);border-bottom:1px solid var(--line)}
     .urgency-strip{font-size:11px;padding:8px 12px;gap:12px}
-    .vsl,.hero-photo{aspect-ratio:9/14;max-width:440px;margin:0 auto}
+    .vsl,.hero-photo,.hero-video{max-width:440px;margin:0 auto}
     .modules-grid{grid-template-columns:repeat(2,1fr)}
     .testimonials{grid-template-columns:1fr}
     .topnav{display:none}
@@ -907,12 +929,58 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     .form-card{padding:28px 24px}
   }
   @media (max-width: 540px){
+    .container{padding:0 26px}
+    .urgency-strip{padding:7px 12px;line-height:1.35}
+    .urgency-strip b{font-size:10px}
+    .hero{
+      min-height:auto;
+      padding:34px 0 58px;
+      align-items:flex-start;
+    }
+    .hero-grid{gap:20px}
+    .hero-eyebrow{
+      order:0;
+      margin-bottom:4px;
+      padding:7px 13px;
+      font-size:9.5px;
+      letter-spacing:0.13em;
+    }
+    h1.hero-title{
+      order:1;
+      font-size:clamp(27px, 8.2vw, 34px);
+      line-height:1.08;
+      margin-bottom:0;
+    }
+    h1.hero-title .accent{font-size:.86em;margin-top:8px}
+    .hero-video{
+      order:2;
+      width:100%;
+      max-width:none;
+      margin:4px 0 0;
+    }
+    .hero-lede{
+      order:3;
+      font-size:14.5px;
+      line-height:1.55;
+      margin-bottom:18px;
+    }
+    .hero-cta{
+      order:4;
+      gap:12px;
+    }
+    .hero-cta .btn{
+      width:100%;
+      justify-content:center;
+      padding:13px 18px;
+      font-size:11px;
+    }
     .hero-trust{
+      order:5;
       display:grid;
       grid-template-columns:1fr;
       gap:12px;
-      margin-top:30px;
-      padding-top:24px;
+      margin-top:16px;
+      padding-top:18px;
     }
     .hero-trust-item{
       background:rgba(255,255,255,.1);
@@ -929,10 +997,10 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
     .differs-card{padding:32px 24px}
     .equip-track{font-size:14px}
     .logo-img{height:52px}
-    .topbar-inner{gap:10px;padding:12px 18px}
+    .topbar-inner{gap:8px;padding:10px 16px}
     .header-logos{gap:8px}
-    .header-peak-logo{height:34px;max-width:98px;padding:4px 6px}
-    .btn-sm{padding:9px 12px;font-size:10px}
+    .header-peak-logo{height:42px;max-width:112px;padding:5px 8px}
+    .btn-sm{padding:9px 11px;font-size:10px}
     .form-row{grid-template-columns:1fr}
     .form-field.split{margin-bottom:14px}
     .modules-photo-strip{aspect-ratio:4/3}
@@ -945,14 +1013,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
 
 <!-- ─── URGENCY STRIP ─────────────── -->
 <div class="urgency-strip">
-  <span><b>● Cohorte automne 2026</b> — début 19 septembre · 10 places disponibles</b></span>
-  <span class="countdown" id="countdown">
-    <span class="cd-num" id="cd-d">—</span><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.7">jours</span>
-    <span class="cd-sep">·</span>
-    <span class="cd-num" id="cd-h">—</span><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.7">h</span>
-    <span class="cd-sep">·</span>
-    <span class="cd-num" id="cd-m">—</span><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.7">min</span>
-  </span>
+  <span><b>● Cohorte automne 2026</b> — début 19 septembre · 10 places disponibles</span>
 </div>
 
 <!-- ─── TOP BAR ─────────────── -->
@@ -996,7 +1057,7 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
         </p>
         <div class="hero-cta">
           <a href="#inscription" class="btn btn-orange">Réserver ma place <span class="arrow">→</span></a>
-          <a href="#certifications" class="btn btn-white">Voir le programme <span class="arrow">→</span></a>
+          <a href="#vsl" class="btn btn-white">▶&nbsp;&nbsp;Regarder la vidéo</a>
         </div>
         <div class="hero-trust">
           <div class="hero-trust-item"><strong>20+ ans</strong>Peak Pilates®</div>
@@ -1022,8 +1083,13 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
         </button>
       </div>
       -->
+      <!-- Temporary hero photo paused now that the Wistia VSL is live.
       <div class="hero-photo" id="formation-photo" role="img" aria-label="Étudiantes en formation Pilates sur reformer">
         <div class="hero-photo-caption">« Une formation concrète, dans le corps, sur les appareils. »</div>
+      </div>
+      -->
+      <div class="hero-video" id="vsl">
+        <wistia-player media-id="d7bnd86ebn" aspect="1.7777777777777777"></wistia-player>
       </div>
     </div>
   </div>
@@ -1512,21 +1578,25 @@ footer .logo-img{height:76px;background:#fff;border-radius:8px;padding:6px 10px}
   document.querySelectorAll('a[href="#inscription"]').forEach(link => {
     link.addEventListener('click', () => trackMeta('Contact', {content_name:'PPC-1 lead CTA'}));
   });
-  // VSL placeholder disabled while the hero uses a static image.
+  // VSL placeholder disabled while the hero uses Wistia.
   // const playBtn = document.querySelector('.vsl-play');
   // if (playBtn) playBtn.addEventListener('click', () => alert('La vidéo VSL sera intégrée ici (YouTube/Vimeo embed).'));
 
   // Countdown to 19 sept 2026
   const target = new Date('2026-09-19T08:00:00-04:00').getTime();
   function tick(){
+    const dayEl = document.getElementById('cd-d');
+    const hourEl = document.getElementById('cd-h');
+    const minEl = document.getElementById('cd-m');
+    if (!dayEl || !hourEl || !minEl) return;
     const diff = target - Date.now();
     if (diff < 0) return;
     const d = Math.floor(diff / 86400000);
     const h = Math.floor(diff % 86400000 / 3600000);
     const m = Math.floor(diff % 3600000 / 60000);
-    document.getElementById('cd-d').textContent = d;
-    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    dayEl.textContent = d;
+    hourEl.textContent = String(h).padStart(2,'0');
+    minEl.textContent = String(m).padStart(2,'0');
   }
   tick(); setInterval(tick, 30000);
 </script>
